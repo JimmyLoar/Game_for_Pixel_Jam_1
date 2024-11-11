@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwkws5ctupj5q"
-path="res://.godot/imported/Female Hair1.png-b26db76c248e472343d84c35ac5eebe4.ctex"
+uid="uid://cjrwljij4a1q5"
+path="res://.godot/imported/GandalfHardcore Background layers_layer 3.png-6a35bb8f1d3d8aae9c7b736dbfa86bb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore Character Asset Pack/Female Hair/Female Hair1.png"
-dest_files=["res://.godot/imported/Female Hair1.png-b26db76c248e472343d84c35ac5eebe4.ctex"]
+source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Winter BG/GandalfHardcore Background layers_layer 3.png"
+dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 3.png-6a35bb8f1d3d8aae9c7b736dbfa86bb5.ctex"]
 
 [params]
 

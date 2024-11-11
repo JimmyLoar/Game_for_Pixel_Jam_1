@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbpnb6edhglih"
-path="res://.godot/imported/Male Hair1.png-675931155296b2d22987383f2c95f9cc.ctex"
+uid="uid://y7h1untr8k3g"
+path="res://.godot/imported/GandalfHardcore Background layers_layer 1.png-736e6621c996323edd8e458ce9ca8f49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore Character Asset Pack/Male Hair/Male Hair1.png"
-dest_files=["res://.godot/imported/Male Hair1.png-675931155296b2d22987383f2c95f9cc.ctex"]
+source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Autumn BG/GandalfHardcore Background layers_layer 1.png"
+dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 1.png-736e6621c996323edd8e458ce9ca8f49.ctex"]
 
 [params]
 

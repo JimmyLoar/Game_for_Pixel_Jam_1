@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drwcs1xyiv7o7"
-path="res://.godot/imported/Female Skin1.png-ba413029dddcdbfbacc646489ec413b5.ctex"
+uid="uid://ca0u8t31hfday"
+path="res://.godot/imported/GandalfHardcore Background layers_layer 2.png-e547d688ffd1c6c67d1e81a924000952.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore Character Asset Pack/Character skin colors/Female Skin1.png"
-dest_files=["res://.godot/imported/Female Skin1.png-ba413029dddcdbfbacc646489ec413b5.ctex"]
+source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Normal BG/GandalfHardcore Background layers_layer 2.png"
+dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 2.png-e547d688ffd1c6c67d1e81a924000952.ctex"]
 
 [params]
 

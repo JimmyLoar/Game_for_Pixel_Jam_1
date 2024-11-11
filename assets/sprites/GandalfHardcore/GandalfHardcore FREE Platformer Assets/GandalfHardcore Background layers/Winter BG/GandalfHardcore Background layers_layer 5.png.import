@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ibxyb4jibtm"
-path="res://.godot/imported/Male Skin1.png-04f3c0b0b01b6ab464d3dcaea614cf8e.ctex"
+uid="uid://dloglh1ot4x4q"
+path="res://.godot/imported/GandalfHardcore Background layers_layer 5.png-f77d253c24fcc4f3e86c9ad799435e28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore Character Asset Pack/Character skin colors/Male Skin1.png"
-dest_files=["res://.godot/imported/Male Skin1.png-04f3c0b0b01b6ab464d3dcaea614cf8e.ctex"]
+source_file="res://assets/sprites/GandalfHardcore/GandalfHardcore FREE Platformer Assets/GandalfHardcore Background layers/Winter BG/GandalfHardcore Background layers_layer 5.png"
+dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 5.png-f77d253c24fcc4f3e86c9ad799435e28.ctex"]
 
 [params]
 
