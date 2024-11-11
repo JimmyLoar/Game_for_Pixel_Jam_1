@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddkg2i01odm23"]
+
+[sub_resource type="Environment" id="Environment_jlrfy"]
+background_mode = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_jlrfy")

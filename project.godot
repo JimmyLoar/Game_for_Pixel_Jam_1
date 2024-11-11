@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Clicker"
+config/version="0.0.1"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/localization_editor/plugin.cfg", "res://addons/resource_databases/editor_only/plugin.cfg")
+
+[internationalization]
+
+locale/language_filter=["ru"]
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
