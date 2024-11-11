@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CurrencyData" load_steps=3 format=3 uid="uid://b83sucxsc125g"]
+
+[ext_resource type="Script" path="res://core/script/resource/CurrencyData.gd" id="1_obmem"]
+[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_krckg"]
+
+[resource]
+script = ExtResource("1_obmem")
+name_key = "none"
+visible_name = "PROPERTY_NAME_NONE"
+discription = "PROPERTY_DISCRIPTION_NONE"
+texture = ExtResource("2_krckg")
+default_value = 0.0
+default_max_value = 100.0
+default_min_value = 0.0
+default_delta_value = 0.0
+modulate = Color(1, 1, 1, 1)

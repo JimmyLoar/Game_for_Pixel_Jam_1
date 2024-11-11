@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CorrencyData" load_steps=3 format=3 uid="uid://dt1p3518tya01"]
+
+[ext_resource type="Script" path="res://core/script/resource/CurrencyData.gd" id="1_j2y2u"]
+[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_0bvl4"]
+
+[resource]
+script = ExtResource("1_j2y2u")
+name_key = "pixel_red"
+visible_name = "PROPERTY_NAME_PIXEL_RED"
+discription = "PROPERTY_DISCRIPTION_PIXEL_RED"
+texture = ExtResource("2_0bvl4")
+default_value = 0.0
+default_max_value = 4.29497e+06
+default_min_value = 0.0
+default_delta_value = 0.0
+modulate = Color(0.627451, 0, 0, 1)

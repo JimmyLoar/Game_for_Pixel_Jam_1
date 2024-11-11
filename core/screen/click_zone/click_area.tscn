@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnwc6el6bjbp7"]
+
+[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="1_63ukg"]
+[ext_resource type="Script" path="res://core/screen/click_zone/click_area.gd" id="1_lbd36"]
+[ext_resource type="Script" path="res://core/screen/click_zone/sprite_2d.gd" id="3_54lk2"]
+
+[node name="ClickArea" type="Node2D"]
+script = ExtResource("1_lbd36")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_63ukg")
+script = ExtResource("3_54lk2")
+
+[connection signal="clicked" from="." to="Sprite2D" method="_pressed"]

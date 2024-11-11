@@ -5,3 +5,5 @@ background_mode = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_jlrfy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

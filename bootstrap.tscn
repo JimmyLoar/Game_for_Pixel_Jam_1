@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://0nwqtaqjfuk7"]
+
+[ext_resource type="PackedScene" uid="uid://va78km63r0mx" path="res://core/screen/game.tscn" id="1_gxbpu"]
+
+[sub_resource type="GDScript" id="GDScript_l1grh"]
+script/source = "extends Node
+
+@export var game_scene: PackedScene
+
+func _ready() -> void:
+	get_tree().call_deferred(\"change_scene_to_packed\", game_scene)
+"
+
+[node name="Bootstrap" type="Node"]
+script = SubResource("GDScript_l1grh")
+game_scene = ExtResource("1_gxbpu")

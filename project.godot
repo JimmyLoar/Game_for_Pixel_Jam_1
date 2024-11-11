@@ -12,11 +12,13 @@ config_version=5
 
 config/name="Clicker"
 config/version="0.0.1"
+run/main_scene="res://bootstrap.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+Currency="*res://core/script/singletone/currency_data.gd"
 LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
 
 [editor_plugins]
@@ -31,3 +33,7 @@ locale/language_filter=["ru"]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[resource_databases]
+
+main_path="res://content/database.gddb"

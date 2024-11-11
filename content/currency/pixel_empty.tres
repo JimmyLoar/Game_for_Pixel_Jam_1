@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CorrencyData" load_steps=3 format=3 uid="uid://cfoacymprofqq"]
+
+[ext_resource type="Script" path="res://core/script/resource/CurrencyData.gd" id="1_xwsvf"]
+[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_f4nrw"]
+
+[resource]
+script = ExtResource("1_xwsvf")
+name_key = "pixel_empty"
+visible_name = "PROPERTY_NAME_PIXEL_EMPTY"
+discription = "PROPERTY_DISCRIPTION_PIXEL_EMPTY"
+texture = ExtResource("2_f4nrw")
+default_value = 0.0
+default_max_value = 100.0
+default_min_value = 0.0
+default_delta_value = 0.0
+modulate = Color(1, 1, 1, 1)
