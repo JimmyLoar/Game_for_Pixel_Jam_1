@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="CorrencyData" load_steps=3 format=3 uid="uid://cfoacymprofqq"]
+[gd_resource type="Resource" script_class="CurrencyData" load_steps=3 format=3 uid="uid://cfoacymprofqq"]
 
-[ext_resource type="Script" path="res://core/script/resource/CurrencyData.gd" id="1_xwsvf"]
+[ext_resource type="Script" path="res://core/script/resource/currency_data.gd" id="1_xwsvf"]
 [ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_f4nrw"]
 
 [resource]
@@ -13,4 +13,4 @@ default_value = 0.0
 default_max_value = 100.0
 default_min_value = 0.0
 default_delta_value = 0.0
-modulate = Color(1, 1, 1, 1)
+modulate = Color(0.784314, 0.784314, 0.784314, 1)

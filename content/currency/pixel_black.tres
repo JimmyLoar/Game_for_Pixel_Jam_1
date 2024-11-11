@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CurrencyData" load_steps=3 format=3 uid="uid://4yw3q3ea3i8m"]
+
+[ext_resource type="Script" path="res://core/script/resource/currency_data.gd" id="1_bpxac"]
+[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_8804b"]
+
+[resource]
+script = ExtResource("1_bpxac")
+name_key = "pixel_black"
+visible_name = "PROPERTY_NAME_PIXEL_BLACK"
+discription = "PROPERTY_DISCRIPTION_PIXEL_BLACK"
+texture = ExtResource("2_8804b")
+default_value = 0.0
+default_max_value = 4.29497e+06
+default_min_value = 0.0
+default_delta_value = 0.0
+modulate = Color(0.196078, 0.196078, 0.196078, 1)

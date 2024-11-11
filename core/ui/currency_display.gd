@@ -26,6 +26,7 @@ func update(property_name = ""):
 	var data: CurrencyData = Currency.get_data(property_name)
 	texture_rect.texture = data.texture
 	modulate = data.modulate
+	tooltip_text = data.visible_name
 	show()
 
 
@@ -33,8 +34,9 @@ func update_value(currency_name: String):
 	if _name != currency_name:
 		return 
 	
-	#var string: String = "%d" % 
-	label.text = "".humanize_size(Currency.get_value(_name))
+	var value = Currency.get_value(_name)
+	label.text = "".humanize_size(value)
+	visible = value > 0
 
 
 func _get_property_list() -> Array[Dictionary]:

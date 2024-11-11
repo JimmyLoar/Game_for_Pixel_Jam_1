@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CurrencyData" load_steps=3 format=3 uid="uid://ic5qih2mntsb"]
+
+[ext_resource type="Script" path="res://core/script/resource/currency_data.gd" id="1_u8hu0"]
+[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_57806"]
+
+[resource]
+script = ExtResource("1_u8hu0")
+name_key = "pixel_super_green"
+visible_name = "PROPERTY_NAME_PIXEL_SUPER_GREEN"
+discription = "PROPERTY_DISCRIPTION_PIXEL_SUPER_GREEN"
+texture = ExtResource("2_57806")
+default_value = 0.0
+default_max_value = 4.29497e+06
+default_min_value = 0.0
+default_delta_value = 0.0
+modulate = Color(0, 1, 0, 1)

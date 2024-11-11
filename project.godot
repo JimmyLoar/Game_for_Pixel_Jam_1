@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Currency="*res://core/script/singletone/currency_data.gd"
+Currency="*res://core/script/singletone/currency.gd"
 LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
 
 [editor_plugins]
