@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://ddsgvnrdbdu6h"]
+
+[ext_resource type="Script" path="res://core/script/resource/upgrade_data.gd" id="1_bx4ck"]
+
+[resource]
+script = ExtResource("1_bx4ck")
+name_key = "drop_per_click"
+visible_name = "UPGRADE_NAME_DROP_PER_CLICK"
+discription = "UPGRADE_DISCRIPTION_DROP_PER_CLICK"
+level_max = 3
+values_names = Array[String](["drop_per_click"])
+level_00/values/drop_per_click = 1
+level_00/prise_0/id = 0
+level_00/prise_0/value = 5
+level_00/prise_1/id = 0
+level_00/prise_1/value = 0
+level_00/prise_2/id = 0
+level_00/prise_2/value = 0
+level_01/values/drop_per_click = 2
+level_01/prise_0/id = 0
+level_01/prise_0/value = 15
+level_01/prise_1/id = 0
+level_01/prise_1/value = 0
+level_01/prise_2/id = 0
+level_01/prise_2/value = 0
+level_02/values/drop_per_click = 3
+level_02/prise_0/id = 0
+level_02/prise_0/value = 25
+level_02/prise_1/id = 1
+level_02/prise_1/value = 0
+level_02/prise_2/id = 0
+level_02/prise_2/value = 0
+level_03/values/drop_per_click = 5
+level_03/prise_0/id = 0
+level_03/prise_0/value = 0
+level_03/prise_1/id = 0
+level_03/prise_1/value = 0
+level_03/prise_2/id = 0
+level_03/prise_2/value = 0

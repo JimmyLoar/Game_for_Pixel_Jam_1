@@ -17,4 +17,3 @@ func _update_sprite_position():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed() and event is InputEventMouseButton:
 		clicked.emit()
-		Currency.add_value("pixel_empty", 1)

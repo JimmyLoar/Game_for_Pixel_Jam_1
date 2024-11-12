@@ -9,7 +9,7 @@ var database: Database = load(ProjectSettings.get_setting("resource_databases/ma
 var _values := Dictionary()
 
 
-func _ready() -> void:
+func _init() -> void:
 	var currency_list = database.fetch_collection_data(COLLECTION_NAME)
 	for data in currency_list.values():
 		set_value(data.name_key, data.default_value)
@@ -35,5 +35,5 @@ func get_value(currency_name: String) -> int:
 
 
 func get_data(currency_name: String):
-	return database.fetch_data_string("currency/%s" % currency_name)
+	return database.fetch_data_string("%s/%s" % [COLLECTION_NAME, currency_name])
 	

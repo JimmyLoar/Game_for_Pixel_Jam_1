@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8qr08vbom781"]
+
+[ext_resource type="Script" path="res://core/ui/upgrade_panel.gd" id="1_t5tpt"]
+[ext_resource type="PackedScene" uid="uid://ceklg2gcwcad5" path="res://core/ui/prise_display.tscn" id="2_m8jrd"]
+
+[node name="UpgradePanel" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 88)
+offset_right = 429.0
+offset_bottom = 75.0
+script = ExtResource("1_t5tpt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "UPGRADE_NAME_DROP_PER_CLICK"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Prise" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PriseDisplay" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
+layout_mode = 2
+
+[node name="PriseDisplay2" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
+layout_mode = 2
+
+[node name="PriseDisplay3" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+editor_only = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "UPGRADE_DISCRIPTION_DROP_PER_CLICK"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+disabled = true
+text = "Buy"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]

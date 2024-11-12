@@ -19,7 +19,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 Currency="*res://core/script/singletone/currency.gd"
+Properties="*res://core/script/singletone/properties.gd"
 LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [editor_plugins]
 
@@ -27,6 +33,8 @@ enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/
 
 [internationalization]
 
+locale/translations=PackedStringArray("res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation")
+locale/fallback="ru"
 locale/language_filter=["ru"]
 
 [rendering]

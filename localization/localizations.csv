@@ -14,3 +14,5 @@ KEY_APPLY,Apply,Anwenden,Применить
 KEY_PLACEHOLDER_NAME,My name is {{NAME}}.,Mein Name ist {{NAME}}.,Меня зовут {{NAME}}.
 KEY_PLACEHOLDER_AGE,I'm {{OLD}}  years old.,Ich bin {{OLD}} Jahre alt.,Мне {{OLD}} лет.
 KEY_PLACEHOLDER_NAME_AGE,"My name is {{NAME}}, and I'm {{OLD}}  years old.",Mein Name ist {{NAME}} und ich bin {{OLD}} Jahre alt.,Меня зовут {{NAME}} и мне {{OLD}} лет.
+UPGRADE_DISCRIPTION_DROP_PER_CLICK,Increases the number of resources received by {values/click_value} for each click},,Увеличевает кол-во получаемых ресурсов на [color=green]{drop_per_click}[/color] за каждый клик
+UPGRADE_NAME_DROP_PER_CLICK,More resources,,Больше ресурсов

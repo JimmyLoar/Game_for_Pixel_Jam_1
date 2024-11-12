@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=7 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
+[ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
 [ext_resource type="PackedScene" uid="uid://dqafjxxiadcpx" path="res://core/ui/currency_display.tscn" id="1_t7viv"]
+[ext_resource type="PackedScene" uid="uid://b8qr08vbom781" path="res://core/ui/upgrade_panel.tscn" id="3_gjklg"]
+[ext_resource type="Resource" uid="uid://ddsgvnrdbdu6h" path="res://content/upgrade/drop_per_click.tres" id="5_1a6tk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmbs"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_afmbs")
+script = ExtResource("1_s6ysp")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -23,11 +27,32 @@ theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 2
 
 [node name="Recycle" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="ClickArea" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_j3fv5")]
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Extraction" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -35,7 +60,7 @@ size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction"]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
 layout_mode = 2
@@ -44,7 +69,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(380, 319)
+size = Vector2i(379, 320)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -75,51 +100,61 @@ size_flags_stretch_ratio = 15.9
 [node name="PropertyDisplay" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 0
 
 [node name="PropertyDisplay2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 4
 
 [node name="PropertyDisplay3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 3
 
 [node name="PropertyDisplay4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 2
 
 [node name="PropertyDisplay5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 10
 
 [node name="PropertyDisplay6" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 5
 
 [node name="PropertyDisplay7" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 6
 
 [node name="PropertyDisplay8" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 9
 
 [node name="PropertyDisplay9" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 8
 
 [node name="PropertyDisplay10" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
+invert_side = true
 _id = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
@@ -138,6 +173,36 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 border_width = 2.0
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel"]
+layout_mode = 2
+
+[node name="UpgradePanel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
 [node name="World" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2, 2)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="clicked" from="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_recycle_clicked"]
+[connection signal="clicked" from="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_extraction_clicked"]

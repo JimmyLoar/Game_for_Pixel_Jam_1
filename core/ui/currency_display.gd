@@ -2,6 +2,8 @@
 class_name CurrencyDisplay
 extends MarginContainer
 
+@export var invert_side := false
+
 @onready var texture_rect: TextureRect = $HBoxContainer/TextureRect
 @onready var label: Label = $HBoxContainer/Label
 var database: Database = load(ProjectSettings.get_setting("resource_databases/main_path", ""))
@@ -12,22 +14,31 @@ var _id: int = 1:
 		_name = database.fetch_data("currency", _id).name_key
 var _name: String = ""
 
-func _ready() -> void:
-	Currency.change_value.connect(update_value)
+
+func set_id(new_id: int):
+	_id = new_id
+	_name = database.fetch_data("currency", _id).name_key
 	update(_name)
-	update_value(_name)
+	return
 
 
-func update(property_name = ""):
-	if property_name == "": 
+func _ready() -> void:
+	if not Engine.is_editor_hint(): 
+		Currency.change_value.connect(update_value)
+		update_value(_name)
+		update(_name)
+		_update_side()
+
+
+func update(__name = _name):
+	if __name == "": 
 		hide()
 		return
 	
-	var data: CurrencyData = Currency.get_data(property_name)
-	texture_rect.texture = data.texture
+	var data: CurrencyData = Currency.get_data(__name)
+	$HBoxContainer/TextureRect.texture = data.texture
 	modulate = data.modulate
 	tooltip_text = data.visible_name
-	show()
 
 
 func update_value(currency_name: String):
@@ -35,8 +46,16 @@ func update_value(currency_name: String):
 		return 
 	
 	var value = Currency.get_value(_name)
-	label.text = "".humanize_size(value)
-	visible = value > 0
+	label.text = "".humanize_size(value).lpad(8)
+	self.visible = value > 0
+
+
+func _update_side():
+	if not texture_rect:
+		texture_rect = $HBoxContainer/TextureRect
+	get_child(0).move_child(texture_rect, int(invert_side))
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT if not invert_side \
+		else HORIZONTAL_ALIGNMENT_RIGHT
 
 
 func _get_property_list() -> Array[Dictionary]:
