@@ -1,13 +1,74 @@
-[gd_scene load_steps=7 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=13 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
 [ext_resource type="PackedScene" uid="uid://dqafjxxiadcpx" path="res://core/ui/currency_display.tscn" id="1_t7viv"]
 [ext_resource type="PackedScene" uid="uid://b8qr08vbom781" path="res://core/ui/upgrade_panel.tscn" id="3_gjklg"]
 [ext_resource type="Resource" uid="uid://ddsgvnrdbdu6h" path="res://content/upgrade/drop_per_click.tres" id="5_1a6tk"]
+[ext_resource type="PackedScene" uid="uid://631hy0tm7r6l" path="res://content/screen/world_1.tscn" id="6_pm424"]
+[ext_resource type="Texture2D" uid="uid://bgq2hovn5n76n" path="res://assets/sprites/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01c.png" id="6_wxv3g"]
+[ext_resource type="PackedScene" uid="uid://ddnu1bpo4pngg" path="res://content/screen/world_2.tscn" id="7_1khyj"]
+[ext_resource type="Script" path="res://core/script/resource/upgrade_data.gd" id="9_fue1e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmbs"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xmib"]
+texture = ExtResource("6_wxv3g")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Resource" id="Resource_qvuw3"]
+script = ExtResource("9_fue1e")
+name_key = "upgrade_name"
+visible_name = "UPGRADE_NAME_UPGRADE_NAME"
+discription = "UPGRADE_DISCRIPTION_UPGRADE_NAME"
+level_max = 5
+values_names = Array[String](["defualt"])
+level_00/values/defualt = 0
+level_00/prise_0/id = 0
+level_00/prise_0/value = 0
+level_00/prise_1/id = 0
+level_00/prise_1/value = 0
+level_00/prise_2/id = 0
+level_00/prise_2/value = 0
+level_01/values/defualt = 0
+level_01/prise_0/id = 0
+level_01/prise_0/value = 0
+level_01/prise_1/id = 0
+level_01/prise_1/value = 0
+level_01/prise_2/id = 0
+level_01/prise_2/value = 0
+level_02/values/defualt = 0
+level_02/prise_0/id = 0
+level_02/prise_0/value = 0
+level_02/prise_1/id = 0
+level_02/prise_1/value = 0
+level_02/prise_2/id = 0
+level_02/prise_2/value = 0
+level_03/values/defualt = 0
+level_03/prise_0/id = 0
+level_03/prise_0/value = 0
+level_03/prise_1/id = 0
+level_03/prise_1/value = 0
+level_03/prise_2/id = 0
+level_03/prise_2/value = 0
+level_04/values/defualt = 0
+level_04/prise_0/id = 0
+level_04/prise_0/value = 0
+level_04/prise_1/id = 0
+level_04/prise_1/value = 0
+level_04/prise_2/id = 0
+level_04/prise_2/value = 0
+level_05/values/defualt = 0
+level_05/prise_0/id = 0
+level_05/prise_0/value = 0
+level_05/prise_1/id = 0
+level_05/prise_1/value = 0
+level_05/prise_2/id = 0
+level_05/prise_2/value = 0
 
 [node name="Game" type="PanelContainer"]
 anchors_preset = 15
@@ -69,7 +130,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(379, 320)
+size = Vector2i(421, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -173,10 +234,40 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 border_width = 2.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel"]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
-[node name="UpgradePanel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UpgradePanel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
+[node name="UpgradePanel2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
+[node name="UpgradePanel3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
+[node name="UpgradePanel4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
+[node name="UpgradePanel5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
+[node name="UpgradePanel6" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("5_1a6tk")
+
+[node name="UpgradePanel7" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("5_1a6tk")
 
@@ -185,24 +276,88 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+focus_mode = 1
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_8xmib")
+metadata/_edit_group_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(416, 172)
 size_2d_override_stretch = true
-render_target_update_mode = 0
+render_target_update_mode = 4
+
+[node name="World L1" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport" instance=ExtResource("6_pm424")]
+
+[node name="Panel2" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+focus_mode = 1
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_8xmib")
+metadata/_edit_group_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(416, 172)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="World L2" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer/SubViewport" instance=ExtResource("7_1khyj")]
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UpgradePanel" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = SubResource("Resource_qvuw3")
+
+[node name="UpgradePanel2" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+
+[node name="UpgradePanel3" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+
+[node name="UpgradePanel4" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+
+[node name="UpgradePanel5" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+
+[node name="UpgradePanel6" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+
 [connection signal="clicked" from="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_recycle_clicked"]
 [connection signal="clicked" from="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_extraction_clicked"]
+[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up"]
+[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel2" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up" binds= ["env/Bg2"]]
+[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel3" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up" binds= ["env/Bg3"]]

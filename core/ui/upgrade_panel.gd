@@ -1,6 +1,8 @@
 @tool
 extends PanelContainer
 
+signal level_up
+
 @export var data: UpgradeData
 
 @onready var prises: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer/Prise
@@ -21,7 +23,7 @@ func _ready() -> void:
 
 
 func update():
-	
+	if not data: return
 	title_label.text = data.visible_name
 	texture_rect.texture = data.texture
 	rich_text_label.clear()
@@ -67,6 +69,7 @@ func _on_button_pressed() -> void:
 		Properties.set_value(key, values[key])
 	_update_prise()
 	update()
+	level_up.emit(currect_level, data.level_max)
 	return
 
 
