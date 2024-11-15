@@ -65,11 +65,11 @@ func _on_button_pressed() -> void:
 	
 	currect_level = clamp(currect_level + 1, 0, data.level_max)
 	var values = data.get_values(currect_level)
-	for key in values.keys():
-		Properties.set_value(key, values[key])
+	#for key in values.keys():
+		#Properties.set_value(key, values[key])
 	_update_prise()
 	update()
-	level_up.emit(currect_level, data.level_max)
+	level_up.emit(currect_level, data.level_max, data.get_values(currect_level)["env_name"])
 	return
 
 

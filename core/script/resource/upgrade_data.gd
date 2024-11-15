@@ -20,8 +20,9 @@ extends Resource
 		get(): return TranslationServer.translate("UPGRADE_DISCRIPTION_" + name_key.to_upper())
 
 @export var texture: Texture2D
+@export var is_override := false
 
-@export_range(1, 50, 1) var level_max := 1:
+@export_range(1, 50, 1, "or_greater") var level_max := 1:
 	set(value):
 		level_max = value
 		level_list.resize(value + 1)
@@ -56,9 +57,14 @@ func _get_property_list() -> Array[Dictionary]:
 	
 	for i in level_max + 1:
 		for key in values_names:
+			var _type = TYPE_INT 
+			if key.contains(":"):
+				_type = key.get_slice(":", 1).to_int()
+				key = key.get_slice(":", 0)
+			
 			properties.append({
 				name = "level_%02d/values/%s" % [i, key],
-				type = TYPE_INT,
+				type = _type,
 				hint = PROPERTY_HINT_RANGE,
 				hint_string = "0, 65536, 1, or_greater",
 			})
@@ -106,13 +112,13 @@ func _set(_name: StringName, value):
 	
 	if value_name.begins_with("values"):
 		var index = level
-		while index < level_max:
+		while index <= level_max and is_override:
 			level_list[index][value_name] = value
 			index += 1
 	
 	if value_name.ends_with("id"):
 		var index = level
-		while index < level_max:
+		while index <= level_max and is_override:
 			level_list[index][value_name] = value
 			index += 1
 	

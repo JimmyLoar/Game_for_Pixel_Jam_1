@@ -7,6 +7,7 @@ script = ExtResource("1_bx4ck")
 name_key = "drop_per_click"
 visible_name = "UPGRADE_NAME_DROP_PER_CLICK"
 discription = "UPGRADE_DISCRIPTION_DROP_PER_CLICK"
+is_override = false
 level_max = 3
 values_names = Array[String](["drop_per_click"])
 level_00/values/drop_per_click = 1
