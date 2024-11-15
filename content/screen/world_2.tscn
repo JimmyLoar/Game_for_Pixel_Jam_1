@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://ddnu1bpo4pngg"]
+[gd_scene load_steps=10 format=4 uid="uid://ddnu1bpo4pngg"]
 
 [ext_resource type="PackedScene" uid="uid://bnp7eg4qke7e1" path="res://content/screen/world.tscn" id="1_p6s4j"]
 [ext_resource type="Shader" path="res://content/screen/pix.gdshader" id="2_athsx"]
@@ -14,7 +14,33 @@ shader = ExtResource("2_athsx")
 shader_parameter/time = 1.57
 shader_parameter/custom_resolution = Vector2(320, 192)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8n150"]
+[sub_resource type="Shader" id="Shader_u3e1f"]
+code = "shader_type canvas_item;
+
+uniform float time:hint_range(0.0, 1.57, 0.001) = 1.0;
+uniform vec2 custom_resolution = vec2(320, 192);
+
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,96.233))) * 43758.5453);
+}
+
+void fragment()
+{
+	vec2 within_texture_pixel=vec2(floor(UV * custom_resolution));
+	vec4 color= texture(TEXTURE,UV);
+
+	if(sin(time) > rand(within_texture_pixel))
+		COLOR = color;
+	else
+		COLOR = vec4(0.0,0.0,0.0,0.0);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7hjr"]
+shader = SubResource("Shader_u3e1f")
+shader_parameter/time = 1.57
+shader_parameter/custom_resolution = Vector2(320, 192)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bu34p"]
 shader = ExtResource("2_athsx")
 shader_parameter/time = 1.57
 shader_parameter/custom_resolution = Vector2(320, 192)
@@ -25,6 +51,9 @@ shader_parameter/time = 1.57
 shader_parameter/custom_resolution = Vector2(320, 192)
 
 [node name="World L2" instance=ExtResource("1_p6s4j")]
+
+[node name="Enveroment" parent="." index="0"]
+texture_filter = 1
 
 [node name="FrameLimit" type="TileMapLayer" parent="Enveroment" index="0"]
 material = SubResource("ShaderMaterial_i0dsp")
@@ -42,12 +71,12 @@ tile_map_data = PackedByteArray("AAABAAYAAgAEAAoAAAABAAcAAgAEAAsAAAABAAgAAgAEAAw
 tile_set = ExtResource("2_ntnf2")
 
 [node name="TL3" type="TileMapLayer" parent="Enveroment" index="3"]
-material = SubResource("ShaderMaterial_8n150")
+material = SubResource("ShaderMaterial_u7hjr")
 tile_map_data = PackedByteArray("AAAEAAkAAgAGAAgAAAAAAAkAAgAGAAgAAAAHAAoAAgAAAAwAAAABAAEAAgAHAAIAAAACAAEAAgAHAAEAAAAKAAEAAgAHAAAAAAAAAAEAAgACAAwAABAFAAgAAgAFAAAAAAAFAAkAAgAFAAEAAAAGAAgAAgAGAAAAAAAGAAkAAgAGAAEAAAARAAgABQASABEAAAARAAkABQASABIAAAASAAgABQATABEAAAASAAkABQATABIAAAA=")
 tile_set = ExtResource("2_ntnf2")
 
 [node name="Bg2" type="TileMapLayer" parent="Enveroment" index="4"]
-material = SubResource("ShaderMaterial_i0dsp")
+material = SubResource("ShaderMaterial_bu34p")
 tile_map_data = PackedByteArray("AAASAAkAAQARABQAAAASAAoAAQARABUAAAASAAsAAQARABYAAAATAAQAAQASAA8AAAATAAUAAQASABAAAAATAAcAAQASABIAAAATAAgAAQASABMAAAATAAkAAQASABQAAAATAAoAAQASABUAAAATAAsAAQASABYAAAAUAAMAAQATAA4AAAAUAAQAAQATAA8AAAAUAAUAAQATABAAAAAUAAYAAQATABEAAAAUAAcAAQATABIAAAAUAAgAAQATABMAAAAUAAkAAQATABQAAAAUAAoAAQATABUAAAAUAAsAAQATABYAAAAVAAMAAQAUAA4AAAAVAAQAAQAUAA8AAAAVAAUAAQAUABAAAAAVAAYAAQAUABEAAAAVAAcAAQAUABIAAAAVAAgAAQAUABMAAAAVAAkAAQAUABQAAAAVAAoAAQAUABUAAAAVAAsAAQAUABYAAAAWAAIAAQAVAA0AAAAWAAMAAQAVAA4AAAAWAAQAAQAVAA8AAAAWAAUAAQAVABAAAAAWAAYAAQAVABEAAAAWAAcAAQAVABIAAAAWAAgAAQAVABMAAAAWAAkAAQAVABQAAAAWAAoAAQAVABUAAAAXAAIAAQAWAA0AAAAXAAMAAQAWAA4AAAAXAAQAAQAWAA8AAAAXAAUAAQAWABAAAAAXAAYAAQAWABEAAAAXAAcAAQAWABIAAAAXAAgAAQAWABMAAAAXAAkAAQAWABQAAAAXAAoAAQAWABUAAAAYAAIAAQAXAA0AAAAYAAMAAQAXAA4AAAAYAAQAAQAXAA8AAAAYAAUAAQAXABAAAAAYAAYAAQAXABEAAAAYAAcAAQAXABIAAAAYAAgAAQAXABMAAAAYAAkAAQAXABQAAAAYAAoAAQAXABUAAAAZAAIAAQAYAA0AAAAZAAMAAQAYAA4AAAAZAAQAAQAYAA8AAAAZAAUAAQAYABAAAAAZAAYAAQAYABEAAAAZAAcAAQAYABIAAAAZAAgAAQAYABMAAAAZAAkAAQAYABQAAAAZAAoAAQAYABUAAAAVAAIAAQATAA4AAAAXAAEAAQAVAA0AAAAYAAEAAQAWAA0AAAAZAAEAAQAXAA0AAAAYAAAAAQAHAA0AAAAZAAAAAQAIAA0AAAA=")
 tile_set = ExtResource("2_ntnf2")
 

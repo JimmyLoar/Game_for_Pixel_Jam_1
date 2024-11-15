@@ -88,7 +88,7 @@ shader_parameter/custom_resolution = Vector2(320, 192)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ag72x"]
 shader = ExtResource("5_es717")
 shader_parameter/time = 1.57
-shader_parameter/custom_resolution = Vector2(100, 100)
+shader_parameter/custom_resolution = Vector2(320, 192)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d0nhv"]
 shader = ExtResource("5_es717")

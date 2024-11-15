@@ -12,7 +12,7 @@ signal level_up
 @onready var button: Button = $MarginContainer/VBoxContainer/HBoxContainer2/Button
 
 var currect_level = 0
-
+var _unlock := true
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -20,6 +20,9 @@ func _ready() -> void:
 	
 	update()
 	_update_prise()
+	if data:
+		level_up.connect(UpgradedList.on_level_up.bind(data.name_key))
+		UpgradedList.changed_list.connect(update)
 
 
 func update():
@@ -27,8 +30,14 @@ func update():
 	title_label.text = data.visible_name
 	texture_rect.texture = data.texture
 	rich_text_label.clear()
-	var values = data.get_values(currect_level)
-	rich_text_label.append_text(data.discription.format(values))
+	_unlock = check_for_unlock()
+	if _unlock:
+		var values = data.get_values(currect_level)
+		rich_text_label.append_text(data.discription.format(values))
+		_update_prise()
+	
+	else:
+		_update_lock()
 	
 
 
@@ -42,8 +51,8 @@ func _update_prise():
 		var display: PriseDisplay = prises.get_child(i)
 		display.set_id(_level_data["prise_%d/id" % i])
 		display.prise = _level_data["prise_%d/value" % i] 
-	
-	button.disabled = false
+	button.text = "Buy"
+	button.disabled = not _unlock
 
 
 func _update_prise_null():
@@ -53,6 +62,29 @@ func _update_prise_null():
 		display.prise = 0
 	button.disabled = true
 	button.text = "MAX"
+
+
+func _update_lock():
+	var _names = data.get_need_names(currect_level)
+	var _levels = data.get_need_levels(currect_level)
+	rich_text_label.clear()
+	rich_text_label.append_text("[color=red]%s" % TranslationServer.translate("UPGRADE_LOCK_TEXT"))
+	for index in _names.size():
+		rich_text_label.append_text("\n%s %d" % [_names[index], _levels[index]])
+	rich_text_label.append_text("[/color]")
+	button.disabled = true
+	button.text = "LOCK"
+	
+
+
+func check_for_unlock():
+	var _names = data.get_need_names(currect_level)
+	var _levels = data.get_need_levels(currect_level)
+	for i in _names.size():
+		#breakpoint
+		if not UpgradedList.upgrade_is_more_level(_names[i], _levels[i]):
+			return false
+	return true
 
 
 func _on_button_pressed() -> void:
@@ -65,11 +97,12 @@ func _on_button_pressed() -> void:
 	
 	currect_level = clamp(currect_level + 1, 0, data.level_max)
 	var values = data.get_values(currect_level)
-	#for key in values.keys():
-		#Properties.set_value(key, values[key])
+	if data.add_property:
+		for key in values.keys():
+			Properties.set_value(key, values[key])
 	_update_prise()
 	update()
-	level_up.emit(currect_level, data.level_max, data.get_values(currect_level)["env_name"])
+	level_up.emit(currect_level, data.level_max, data.get_values(currect_level))
 	return
 
 

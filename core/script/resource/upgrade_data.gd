@@ -20,6 +20,7 @@ extends Resource
 		get(): return TranslationServer.translate("UPGRADE_DISCRIPTION_" + name_key.to_upper())
 
 @export var texture: Texture2D
+@export var add_property := false
 @export var is_override := false
 
 @export_range(1, 50, 1, "or_greater") var level_max := 1:
@@ -56,6 +57,16 @@ func _get_property_list() -> Array[Dictionary]:
 	))
 	
 	for i in level_max + 1:
+		properties.append({
+			name = "level_%02d/need_upgrade_names" % [i],
+			type = TYPE_PACKED_STRING_ARRAY,
+		})
+		
+		properties.append({
+			name = "level_%02d/need_upgrade_levels" % [i],
+			type = TYPE_PACKED_INT32_ARRAY,
+		})
+		
 		for key in values_names:
 			var _type = TYPE_INT 
 			if key.contains(":"):
@@ -68,6 +79,7 @@ func _get_property_list() -> Array[Dictionary]:
 				hint = PROPERTY_HINT_RANGE,
 				hint_string = "0, 65536, 1, or_greater",
 			})
+		
 		
 		for ii in range(3):
 			properties.append({
@@ -91,10 +103,16 @@ func _get(_name: StringName):
 	
 	var splited := _name.split("/", true, 1)
 	var level = splited[0].to_int()
-	var value_name = splited[1]
+	var value_name: String = splited[1]
 	
 	if level_list[level].has(value_name):
 		return level_list[level][value_name]
+	
+	if value_name == "need_upgrade_names":
+		return PackedStringArray()
+	
+	elif value_name == "need_upgrade_levels":
+		return PackedInt32Array()
 	
 	return 0
 
@@ -110,17 +128,27 @@ func _set(_name: StringName, value):
 	if not level_list[level]:
 		level_list[level] = {}
 	
-	if value_name.begins_with("values"):
+	if is_override:
 		var index = level
-		while index <= level_max and is_override:
+		while index <= level_max:
 			level_list[index][value_name] = value
 			index += 1
 	
-	if value_name.ends_with("id"):
-		var index = level
-		while index <= level_max and is_override:
-			level_list[index][value_name] = value
-			index += 1
+	if value_name == "need_upgrade_names":
+		if typeof(value) != TYPE_PACKED_STRING_ARRAY:
+			value = PackedStringArray()
 	
+	elif value_name == "need_upgrade_levels":
+		if typeof(value) != TYPE_PACKED_INT32_ARRAY:
+			value = PackedInt32Array()
+		
 	level_list[level][value_name] = value
 	return true
+
+
+func get_need_names(level: int):
+	return level_list[level]["need_upgrade_names"]
+
+
+func get_need_levels(level: int):
+	return level_list[level]["need_upgrade_levels"]

@@ -16,3 +16,5 @@ KEY_PLACEHOLDER_AGE,I'm {{OLD}}  years old.,Ich bin {{OLD}} Jahre alt.,Мне {{
 KEY_PLACEHOLDER_NAME_AGE,"My name is {{NAME}}, and I'm {{OLD}}  years old.",Mein Name ist {{NAME}} und ich bin {{OLD}} Jahre alt.,Меня зовут {{NAME}} и мне {{OLD}} лет.
 UPGRADE_DISCRIPTION_DROP_PER_CLICK,Increases the number of resources received by {values/click_value} for each click},,Увеличевает кол-во получаемых ресурсов на [color=green]{drop_per_click}[/color] за каждый клик
 UPGRADE_NAME_DROP_PER_CLICK,More resources,,Больше ресурсов
+UPGRADE_NAME_CREATE_PART_WORLD,,,Создать кусочек мира
+UPGRADE_DISCRIPTION_CREATE_PART_WORLD,,,Создает мир по частям из вложенных пикселей

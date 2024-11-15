@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://content/screen/decor.gd" id="4_ss1yf"]
 
 [node name="World" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_akqxf")
 
 [node name="Enveroment" type="Node2D" parent="."]
