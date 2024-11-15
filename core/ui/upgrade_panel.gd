@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func update():
 	if not data: return
-	title_label.text = data.visible_name
+	title_label.text = data.visible_name + " %d" % currect_level
 	texture_rect.texture = data.texture
 	rich_text_label.clear()
 	_unlock = check_for_unlock()
@@ -51,7 +51,8 @@ func _update_prise():
 		var display: PriseDisplay = prises.get_child(i)
 		display.set_id(_level_data["prise_%d/id" % i])
 		display.prise = _level_data["prise_%d/value" % i] 
-	button.text = "Buy"
+	button.text = "Buy
+	"
 	button.disabled = not _unlock
 
 
@@ -68,10 +69,13 @@ func _update_lock():
 	var _names = data.get_need_names(currect_level)
 	var _levels = data.get_need_levels(currect_level)
 	rich_text_label.clear()
-	rich_text_label.append_text("[color=red]%s" % TranslationServer.translate("UPGRADE_LOCK_TEXT"))
+	rich_text_label.append_text("[color=red]%s[/color]" % TranslationServer.translate("UPGRADE_LOCK_TEXT"))
 	for index in _names.size():
-		rich_text_label.append_text("\n%s %d" % [_names[index], _levels[index]])
-	rich_text_label.append_text("[/color]")
+		rich_text_label.append_text("\n%s %d" % [
+			TranslationServer.translate("UPGRADE_NAME_%s" % _names[index].to_upper()), 
+			_levels[index],
+			])
+	#rich_text_label.append_text("[/color]")
 	button.disabled = true
 	button.text = "LOCK"
 	

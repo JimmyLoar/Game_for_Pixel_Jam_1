@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=12 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
 [ext_resource type="PackedScene" uid="uid://dqafjxxiadcpx" path="res://core/ui/currency_display.tscn" id="1_t7viv"]
 [ext_resource type="PackedScene" uid="uid://b8qr08vbom781" path="res://core/ui/upgrade_panel.tscn" id="3_gjklg"]
 [ext_resource type="Resource" uid="uid://ddsgvnrdbdu6h" path="res://content/upgrade/drop_per_click.tres" id="5_1a6tk"]
-[ext_resource type="Resource" uid="uid://dfjnhgr8q2v4j" path="res://content/upgrade/test.tres" id="6_i3o3u"]
 [ext_resource type="PackedScene" uid="uid://631hy0tm7r6l" path="res://content/screen/world_1.tscn" id="6_pm424"]
 [ext_resource type="Texture2D" uid="uid://bgq2hovn5n76n" path="res://assets/sprites/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01c.png" id="6_wxv3g"]
 [ext_resource type="PackedScene" uid="uid://ddnu1bpo4pngg" path="res://content/screen/world_2.tscn" id="7_1khyj"]
@@ -200,7 +199,6 @@ data = ExtResource("5_1a6tk")
 
 [node name="UpgradePanel2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
-data = ExtResource("6_i3o3u")
 
 [node name="UpgradePanel3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
