@@ -17,11 +17,13 @@ func _ready() -> void:
 
 func update():
 	if not recipe: 
+		hide()
 		return
 	
 	_update_recources()
 	_update_vision()
 	_update_rich_text()
+	show()
 
 
 func _update_recources():

@@ -1,11 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=24 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
 [ext_resource type="PackedScene" uid="uid://dqafjxxiadcpx" path="res://core/ui/currency_display.tscn" id="1_t7viv"]
+[ext_resource type="Script" path="res://core/screen/recycle.gd" id="2_ijpu3"]
 [ext_resource type="PackedScene" uid="uid://sn1tl0yliyft" path="res://core/screen/recipe_selecter_panel.tscn" id="3_8nnld"]
 [ext_resource type="PackedScene" uid="uid://b8qr08vbom781" path="res://core/ui/upgrade_panel.tscn" id="3_gjklg"]
 [ext_resource type="PackedScene" uid="uid://c0d5abt65dh81" path="res://core/screen/miner_display.tscn" id="3_n8eiy"]
+[ext_resource type="PackedScene" uid="uid://ckdjysu6fb257" path="res://core/screen/recipe_display.tscn" id="4_3ey18"]
 [ext_resource type="Resource" uid="uid://ddsgvnrdbdu6h" path="res://content/upgrade/drop_per_click.tres" id="5_1a6tk"]
 [ext_resource type="PackedScene" uid="uid://631hy0tm7r6l" path="res://content/screen/world_1.tscn" id="6_pm424"]
 [ext_resource type="Texture2D" uid="uid://bgq2hovn5n76n" path="res://assets/sprites/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01c.png" id="6_wxv3g"]
@@ -18,6 +20,36 @@ bg_color = Color(0.121742, 0.132037, 0.144949, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_771el"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.109028, 0.599048, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 1.0
+expand_margin_right = 2.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc4xg"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.639216, 0.631373, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="GDScript" id="GDScript_pygir"]
 script/source = "extends VBoxContainer
@@ -59,17 +91,17 @@ var names = [
 	\"MINER_NAME_33\",
 	\"MINER_NAME_34\",
 ]
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	randomize()
 	names.shuffle()
-	for i in get_child_count():
-		var child: MinerPanel = get_child(i)
+	for i in get_child_count(): 
+		var child: MinerPanel = get_child(i) 
 		var _name = names[wrapi(i, 0, names.size())] 
-		child.set_title(TranslationServer.translate(_name))
+		child.set_title(TranslationServer.translate(_name)) 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 "
@@ -155,29 +187,6 @@ func _update():
 		[(value / float(progress_bar.max_value)) * 100]
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_blend = true
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc4xg"]
-bg_color = Color(3.56168e-06, 0.7197, 0.50028, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [node name="Game" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -200,6 +209,7 @@ layout_mode = 2
 [node name="Recycle" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_ijpu3")
 
 [node name="BG" type="Panel" parent="MarginContainer/HBoxContainer/Recycle"]
 show_behind_parent = true
@@ -231,23 +241,47 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 61)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="TextLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.638286, 0.633323, 1, 1)
 text = "Hand  recycle"
 
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_ar2yn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vc4xg")
+max_value = 1.0
+show_percentage = false
+
 [node name="RecipeLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Selected:"
+
+[node name="RecipeDisplay" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_3ey18")]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay" index="0"]
+visible = false
 
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 text = "change recipe"
 autowrap_mode = 3
 
@@ -282,12 +316,19 @@ layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(5)
 
-[node name="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-recipe = null
-
 [node name="RecipeSelecter" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer" instance=ExtResource("3_8nnld")]
 visible = false
 layout_mode = 2
+
+[node name="RecipeSelecter2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer" instance=ExtResource("3_8nnld")]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
+visible = false
+
+[node name="RecipeSelecterItemRE" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" index="2"]
+visible = false
 
 [node name="Extraction" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -537,4 +578,10 @@ data = ExtResource("10_0t0mh")
 [connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up"]
 [connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer/SubViewport/World L2" method="_on_level_up"]
 
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay1"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay2"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay3"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay4"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/PanelContainer2"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2"]
