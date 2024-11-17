@@ -2,6 +2,8 @@
 class_name RecipeExtract
 extends RecipeI
 
+@export_range(1, 50) var extract_amount := 1
+
 var _id: int = 1:
 	set(value):
 		_id = value
@@ -10,7 +12,7 @@ var _name: String = ""
 
 
 func get_resource():
-	return [_id, 1]
+	return [1,0, 1,0, 1,0, _id, extract_amount]
 
 
 func _get_property_list() -> Array[Dictionary]:

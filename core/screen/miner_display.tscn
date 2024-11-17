@@ -1,11 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0d5abt65dh81"]
+[gd_scene load_steps=6 format=3 uid="uid://c0d5abt65dh81"]
 
 [ext_resource type="PackedScene" uid="uid://ceklg2gcwcad5" path="res://core/ui/prise_display.tscn" id="1_nagua"]
 [ext_resource type="Script" path="res://core/screen/miner_display.gd" id="1_rwus4"]
 [ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_htu0f"]
 [ext_resource type="PackedScene" uid="uid://ckdjysu6fb257" path="res://core/screen/recipe_display.tscn" id="5_6m1u5"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[sub_resource type="GDScript" id="GDScript_j6o7h"]
+script/source = "extends TextureProgressBar
+
+@onready var timer: Timer = $\"../../../../Timer\"
+
+
+func _ready() -> void:
+	hide()
+
+
+func _process(delta: float) -> void:
+	if not timer: return
+	value = timer.wait_time - timer.time_left
+"
+
+[node name="Miner" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 88)
 script = ExtResource("1_rwus4")
 _prise_0_id = 0
@@ -14,6 +29,8 @@ _prise_1_id = 1
 _prise_1_value = 0
 _prise_2_id = 1
 _prise_2_value = 0
+need_upgrade_names = PackedStringArray()
+need_upgrade_levels = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -34,22 +51,25 @@ theme_override_colors/font_color = Color(1.13589e-05, 0.877823, 0.932396, 1)
 text = "miner "
 
 [node name="PriseDisplay1" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nagua")]
-visible = true
+visible = false
 layout_mode = 2
-prise = 30
+prise = 0
+invert_side = false
 
 [node name="PriseDisplay2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nagua")]
-visible = true
+visible = false
 layout_mode = 2
-prise = 15
+prise = 0
+invert_side = false
 
 [node name="PriseDisplay3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nagua")]
-visible = true
+visible = false
 layout_mode = 2
-prise = 123
+prise = 0
+invert_side = false
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(23, 23)
 layout_mode = 2
 max_value = 1.0
 step = 0.001
@@ -57,6 +77,7 @@ value = 1.0
 fill_mode = 4
 nine_patch_stretch = true
 texture_progress = ExtResource("2_htu0f")
+script = SubResource("GDScript_j6o7h")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -73,10 +94,13 @@ visible = false
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(80, 48)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 12
 text = "buy"
 autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]

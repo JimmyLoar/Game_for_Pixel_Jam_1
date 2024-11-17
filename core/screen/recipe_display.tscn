@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://bm0eytpba3o18" path="res://content/recipe/rc_blue.tres" id="2_y556r"]
 
 [node name="RecipeDisplay" type="VBoxContainer"]
+offset_right = 613.0
+offset_bottom = 61.0
 size_flags_horizontal = 3
 script = ExtResource("1_1htir")
 recipe = ExtResource("2_y556r")
@@ -17,39 +19,76 @@ fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+alignment = 1
 
 [node name="PriseDisplay1" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
-visible = true
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 prise = 1
-invert_side = true
+
+[node name="Label" parent="HBoxContainer/PriseDisplay1/HBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "1 B"
+
+[node name="TextureRect" parent="HBoxContainer/PriseDisplay1/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 30)
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "+"
 
 [node name="PriseDisplay2" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
-visible = true
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 prise = 1
-invert_side = true
+
+[node name="Label" parent="HBoxContainer/PriseDisplay2/HBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "1 B"
+
+[node name="TextureRect" parent="HBoxContainer/PriseDisplay2/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 30)
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "+"
 
 [node name="PriseDisplay3" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
-visible = true
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 prise = 1
-invert_side = true
+
+[node name="Label" parent="HBoxContainer/PriseDisplay3/HBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "1 B"
+
+[node name="TextureRect" parent="HBoxContainer/PriseDisplay3/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 30)
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "="
+theme_override_font_sizes/font_size = 24
+text = "=>"
 
 [node name="PriseDisplay4" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
-visible = true
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 prise = 2
-invert_side = true
+
+[node name="Label" parent="HBoxContainer/PriseDisplay4/HBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 20
+text = "2 B"
+
+[node name="TextureRect" parent="HBoxContainer/PriseDisplay4/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 30)
+
+[editable path="HBoxContainer/PriseDisplay1"]
+[editable path="HBoxContainer/PriseDisplay2"]
+[editable path="HBoxContainer/PriseDisplay3"]
+[editable path="HBoxContainer/PriseDisplay4"]

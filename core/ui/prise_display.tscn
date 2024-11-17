@@ -4,16 +4,17 @@
 [ext_resource type="Script" path="res://core/ui/prise_display.gd" id="2_16w82"]
 
 [node name="PriseDisplay" instance=ExtResource("1_cpp2q")]
-visible = false
 custom_minimum_size = Vector2(60, 0)
+offset_right = 60.0
+offset_bottom = 20.0
 size_flags_horizontal = 3
 script = ExtResource("2_16w82")
-prise = 0
+prise = 5
 
 [node name="Label" parent="HBoxContainer" index="0"]
 size_flags_horizontal = 1
 theme_override_font_sizes/font_size = 14
-text = "0 B"
+text = "5 B"
 
 [node name="TextureRect" parent="HBoxContainer" index="1"]
 custom_minimum_size = Vector2(20, 20)

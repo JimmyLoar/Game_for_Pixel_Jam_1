@@ -1,11 +1,15 @@
 extends PanelContainer
 
+signal recipe_selected(recipe: RecipeI)
+@onready var container: VBoxContainer = $MarginContainer/ScrollContainer/VBoxContainer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in container.get_child_count():
+		var child = container.get_child(i)
+		if not child is PanelContainer: continue
+		child.button.pressed.connect(_on_button_pressed.bind(i))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_button_pressed(index: int):
+	hide()
+	recipe_selected.emit(container.get_child(index).recipe)

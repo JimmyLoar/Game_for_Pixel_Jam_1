@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=22 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
 [ext_resource type="PackedScene" uid="uid://dqafjxxiadcpx" path="res://core/ui/currency_display.tscn" id="1_t7viv"]
+[ext_resource type="PackedScene" uid="uid://sn1tl0yliyft" path="res://core/screen/recipe_selecter_panel.tscn" id="3_8nnld"]
 [ext_resource type="PackedScene" uid="uid://b8qr08vbom781" path="res://core/ui/upgrade_panel.tscn" id="3_gjklg"]
 [ext_resource type="PackedScene" uid="uid://c0d5abt65dh81" path="res://core/screen/miner_display.tscn" id="3_n8eiy"]
 [ext_resource type="Resource" uid="uid://ddsgvnrdbdu6h" path="res://content/upgrade/drop_per_click.tres" id="5_1a6tk"]
@@ -13,6 +14,9 @@
 [ext_resource type="Resource" uid="uid://d23d4k7ye6ynd" path="res://content/upgrade/world_upgrade.tres" id="10_0t0mh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmbs"]
+bg_color = Color(0.121742, 0.132037, 0.144949, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_771el"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_pygir"]
@@ -141,12 +145,14 @@ script/source = "extends MarginContainer
 func _ready() -> void:
 	progress_bar.max_value = 65
 	UpgradedList.changed_list.connect(_update)
+	_update()
 
 
 func _update():
 	var value = UpgradedList.get_level(\"create_part_world\")
 	progress_bar.value = value
-	$Label.text = TranslationServer.translate(\"SAVE_PROGRESS_TEXT\") % [(value / 65.0) * 100]
+	$Label.text = TranslationServer.translate(\"SAVE_PROGRESS_TEXT\") % \\
+		[(value / float(progress_bar.max_value)) * 100]
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
@@ -195,6 +201,11 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="BG" type="Panel" parent="MarginContainer/HBoxContainer/Recycle"]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_771el")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle"]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -206,7 +217,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(421, 356)
+size = Vector2i(388, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -264,12 +275,19 @@ script = SubResource("GDScript_pygir")
 
 [node name="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
+_prise_0_value = 0
 
 [node name="PanelContainer2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(5)
 
 [node name="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
 recipe = null
+
+[node name="RecipeSelecter" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer" instance=ExtResource("3_8nnld")]
+visible = false
+layout_mode = 2
 
 [node name="Extraction" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -286,7 +304,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(421, 356)
+size = Vector2i(487, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -317,61 +335,51 @@ size_flags_stretch_ratio = 15.9
 [node name="PropertyDisplay" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 0
 
 [node name="PropertyDisplay2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 4
 
 [node name="PropertyDisplay3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 3
 
 [node name="PropertyDisplay4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 2
 
 [node name="PropertyDisplay5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 10
 
 [node name="PropertyDisplay6" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 5
 
 [node name="PropertyDisplay7" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 6
 
 [node name="PropertyDisplay8" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 9
 
 [node name="PropertyDisplay9" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 8
 
 [node name="PropertyDisplay10" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
-invert_side = true
 _id = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
@@ -411,9 +419,17 @@ data = SubResource("Resource_2f5er")
 layout_mode = 2
 data = SubResource("Resource_sesqn")
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
+layout_mode = 2
+
 [node name="World" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="BG" type="Panel" parent="MarginContainer/HBoxContainer/World"]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_771el")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World"]
 layout_mode = 2
@@ -437,7 +453,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(416, 163)
+size = Vector2i(383, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -462,7 +478,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(416, 163)
+size = Vector2i(383, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -496,7 +512,7 @@ size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.952673, 0.651348, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
-text = "Мир востановлен на 0%"
+text = "SAVE_PROGRESS_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -11,9 +11,6 @@ KEY_PLAY_VIDEO,Play video,Video abspielen,Воспроизвести видео
 KEY_PLACEHOLDER,Placeholder:,Platzhalter:,Заполнитель:
 KEY_VALUE,Value:,Wert:,Ценность:
 KEY_APPLY,Apply,Anwenden,Применить
-KEY_PLACEHOLDER_NAME,My name is {{NAME}}.,Mein Name ist {{NAME}}.,Меня зовут {{NAME}}.
-KEY_PLACEHOLDER_AGE,I'm {{OLD}}  years old.,Ich bin {{OLD}} Jahre alt.,Мне {{OLD}} лет.
-KEY_PLACEHOLDER_NAME_AGE,"My name is {{NAME}}, and I'm {{OLD}}  years old.",Mein Name ist {{NAME}} und ich bin {{OLD}} Jahre alt.,Меня зовут {{NAME}} и мне {{OLD}} лет.
 TIME_EXECUTION_TEXT,Processing time: %0.2f sec,"Verarbeitungszeit: %0,2f Sek",Время переработки: %0.2f сек
 TIME_EXTRACT_TEXT,Mining time: %0.2f sec,"Mining-Zeit: %0,2f Sek",Время добычи: %0.2f сек
 MINER_SELECT_RECIPE,Choose a recipe,Wählen Sie ein Rezept,Выбирете рецепт
@@ -58,3 +55,4 @@ MINER_NAME_32,Fine Renewal,Feine Erneuerung,Изображательный Об�
 MINER_NAME_33,Graphics Updater,Grafik-Updater,Графический Обновитель
 MINER_NAME_34,Pixel Converter,Pixelkonverter,Пиксельный Преобразователь
 SAVE_PROGRESS_TEXT,The world has been restored to %d%%,Die Welt wurde auf %d%% wiederhergestellt,Мир востановлен на %d%%
+STOP_MINER_TEXT,STOP,,ОСТАНОВИТЬ

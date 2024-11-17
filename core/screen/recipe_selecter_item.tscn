@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4cnq70vytbmv"]
+[gd_scene load_steps=3 format=3 uid="uid://c4cnq70vytbmv"]
 
+[ext_resource type="Script" path="res://core/screen/recipe_selecter_item.gd" id="1_4ja0d"]
 [ext_resource type="PackedScene" uid="uid://ckdjysu6fb257" path="res://core/screen/recipe_display.tscn" id="1_heyxy"]
 
 [node name="RecipeSelecterItem" type="PanelContainer"]
+script = ExtResource("1_4ja0d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

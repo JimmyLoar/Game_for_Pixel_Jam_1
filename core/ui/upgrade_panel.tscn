@@ -35,12 +35,15 @@ layout_mode = 2
 
 [node name="PriseDisplay" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
 layout_mode = 2
+size_flags_stretch_ratio = 3.0
 
 [node name="PriseDisplay2" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
 layout_mode = 2
+size_flags_stretch_ratio = 3.0
 
 [node name="PriseDisplay3" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
 layout_mode = 2
+size_flags_stretch_ratio = 3.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -68,8 +71,9 @@ bbcode_enabled = true
 text = "UPGRADE_DISCRIPTION_DROP_PER_CLICK"
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
+size_flags_vertical = 4
 disabled = true
 text = "Buy"
 

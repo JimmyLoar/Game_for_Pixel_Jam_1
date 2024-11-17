@@ -15,7 +15,7 @@ func update_value(currency_name: String = ''):
 	if not label:
 		label = $HBoxContainer/Label
 	
-	label.text = "".humanize_size(prise).lpad(8)
+	label.text = "".humanize_size(prise)
 	self.visible = prise > 0
 
 
