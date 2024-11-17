@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckdjysu6fb257"]
+
+[ext_resource type="Script" path="res://core/screen/recipe_display.gd" id="1_1htir"]
+[ext_resource type="PackedScene" uid="uid://ceklg2gcwcad5" path="res://core/ui/prise_display.tscn" id="1_n6jcu"]
+[ext_resource type="Resource" uid="uid://bm0eytpba3o18" path="res://content/recipe/rc_blue.tres" id="2_y556r"]
+
+[node name="RecipeDisplay" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_1htir")
+recipe = ExtResource("2_y556r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+text = "time create: {create_second} sec"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PriseDisplay1" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
+visible = true
+layout_mode = 2
+prise = 1
+invert_side = true
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="PriseDisplay2" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
+visible = true
+layout_mode = 2
+prise = 1
+invert_side = true
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="PriseDisplay3" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
+visible = true
+layout_mode = 2
+prise = 1
+invert_side = true
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "="
+
+[node name="PriseDisplay4" parent="HBoxContainer" instance=ExtResource("1_n6jcu")]
+visible = true
+layout_mode = 2
+prise = 2
+invert_side = true

@@ -24,8 +24,16 @@ func add_value(currency_name: String, value: int = 0):
 	set_value(currency_name, get_value(currency_name) + value)
 
 
+func add_value_id(id: int, value: int = 0):
+	return add_value(get_name_from_id(id), value)
+
+
 func has_value(currency_name: String, value: int):
 	return get_value(currency_name) >= value
+
+
+func has_value_for_id(id: int, value: int):
+	return has_value(get_name_from_id(id), value)
 
 
 func get_value(currency_name: String) -> int:
@@ -34,6 +42,13 @@ func get_value(currency_name: String) -> int:
 	return 0
 
 
-func get_data(currency_name: String):
-	return database.fetch_data_string("%s/%s" % [COLLECTION_NAME, currency_name])
-	
+func get_name_from_id(id: int):
+	return database.fetch_data(COLLECTION_NAME, id).name_key
+
+
+func get_data(currency_name):
+	if typeof(currency_name) == TYPE_STRING:
+		return database.fetch_data_string("%s/%s" % [COLLECTION_NAME, currency_name])
+	elif typeof(currency_name) == TYPE_INT:
+		return database.fetch_data(COLLECTION_NAME, currency_name)
+	return null

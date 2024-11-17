@@ -5,7 +5,8 @@
 
 [node name="PriseDisplay" instance=ExtResource("1_cpp2q")]
 visible = false
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(60, 0)
+size_flags_horizontal = 3
 script = ExtResource("2_16w82")
 prise = 0
 

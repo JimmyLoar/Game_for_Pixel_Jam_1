@@ -13,3 +13,9 @@ func upgrade_is_more_level(_name: String, level: int):
 	if not _list.has(_name):
 		return false
 	return _list[_name] >= level
+
+
+func get_level(_name: String):
+	if _list.has(_name):
+		return _list[_name]
+	return 0

@@ -14,7 +14,47 @@ KEY_APPLY,Apply,Anwenden,Применить
 KEY_PLACEHOLDER_NAME,My name is {{NAME}}.,Mein Name ist {{NAME}}.,Меня зовут {{NAME}}.
 KEY_PLACEHOLDER_AGE,I'm {{OLD}}  years old.,Ich bin {{OLD}} Jahre alt.,Мне {{OLD}} лет.
 KEY_PLACEHOLDER_NAME_AGE,"My name is {{NAME}}, and I'm {{OLD}}  years old.",Mein Name ist {{NAME}} und ich bin {{OLD}} Jahre alt.,Меня зовут {{NAME}} и мне {{OLD}} лет.
-UPGRADE_DISCRIPTION_DROP_PER_CLICK,Increases the number of resources received by {values/click_value} for each click},,Увеличевает кол-во получаемых ресурсов на [color=green]{drop_per_click}[/color] за каждый клик
-UPGRADE_NAME_DROP_PER_CLICK,More resources,,Больше ресурсов
-UPGRADE_NAME_CREATE_PART_WORLD,,,Создать кусочек мира
-UPGRADE_DISCRIPTION_CREATE_PART_WORLD,,,Создает мир по частям из вложенных пикселей
+TIME_EXECUTION_TEXT,Processing time: %0.2f sec,"Verarbeitungszeit: %0,2f Sek",Время переработки: %0.2f сек
+TIME_EXTRACT_TEXT,Mining time: %0.2f sec,"Mining-Zeit: %0,2f Sek",Время добычи: %0.2f сек
+MINER_SELECT_RECIPE,Choose a recipe,Wählen Sie ein Rezept,Выбирете рецепт
+MINER_DISCRIPTION,Allows you to extract or process resources,Ermöglicht das Extrahieren oder Verarbeiten von Ressourcen,Позволяет добывать или перерабатывать ресурсы
+UPGRADE_DISCRIPTION_DROP_PER_CLICK,Increases the number of resources received by {values/click_value} for each click},"Erhöht die Anzahl der Ressourcen, die [color=green]{drop_per_click}[/color] mit jedem Klick erhält",Увеличевает кол-во получаемых ресурсов на [color=green]{drop_per_click}[/color] за каждый клик
+UPGRADE_NAME_DROP_PER_CLICK,More resources,Mehr Ressourcen,Больше ресурсов
+UPGRADE_NAME_CREATE_PART_WORLD,Create a piece of the world,Erschaffe ein Stück Welt,Создать кусочек мира
+UPGRADE_DISCRIPTION_CREATE_PART_WORLD,Creates a world piece by piece from nested pixels,Erstellt Stück für Stück eine Welt aus verschachtelten Pixeln,Создает мир по частям из вложенных пикселей
+MINER_NAME_00,Pixel Miner,Pixel-Miner,Пиксельный Шахтёр
+MINER_NAME_01,Digital Miner,Digitaler Miner,Цифровой Добытчик
+MINER_NAME_02,Graphic Developer,Grafikentwickler,Графический Разработчик
+MINER_NAME_03,Imager,Bildgeber,Изображатель
+MINER_NAME_04,Pixel Fraser,Pixel Fraser,Пиксельный Фрезер
+MINER_NAME_05,Raster Handler,Raster-Handler,Растровый Обработчик
+MINER_NAME_06,Color Press,Farbpresse,Цветовой Пресс
+MINER_NAME_07,Pixel Press,Pixelpresse,Пиксельный Пресс
+MINER_NAME_08,Image Filter,Bildfilter,Изображательный Фильтр
+MINER_NAME_09,Graphics Amplifier,Grafikverstärker,Графический Усилитель
+MINER_NAME_10,Pixel Booster,Pixel-Booster,Пиксельный Усилитель
+MINER_NAME_11,Digital Recycler,Digitaler Recycler,Цифровой Переработчик
+MINER_NAME_12,Pixel Handler,Pixel-Handler,Пиксельный Обработчик
+MINER_NAME_13,Fine Transformer,Feiner Transformator,Изображательный Трансформатор
+MINER_NAME_14,Graphic Filter,Grafikfilter,Графический Фильтр
+MINER_NAME_15,Pixel Filter,Pixelfilter,Пиксельный Фильтр
+MINER_NAME_16,Color Changer,Farbwechsler,Цветовой Изменитель
+MINER_NAME_17,Pixel Changer,Pixelwechsler,Пиксельный Изменитель
+MINER_NAME_18,Fine Enhancer,Feiner Verstärker,Изображательный Улучшатель
+MINER_NAME_19,Graphic Enhancer,Grafikverstärker,Графический Улучшатель
+MINER_NAME_20,Pixel Enhancer,Pixel-Enhancer,Пиксельный Улучшатель
+MINER_NAME_21,Digital Editor,Digitaler Redakteur,Цифровой Редактор
+MINER_NAME_22,Pixel Editor,Pixel-Editor,Пиксельный Редактор
+MINER_NAME_23,Image Editor,Bildeditor,Изображательный Редактор
+MINER_NAME_24,Graphic Editor,Grafikeditor,Графический Редактор
+MINER_NAME_25,Pixel Generator,Pixelgenerator,Пиксельный Генератор
+MINER_NAME_26,Digital Generator,Digitaler Generator,Цифровой Генератор
+MINER_NAME_27,Image Generator,Bildgenerator,Изображательный Генератор
+MINER_NAME_28,Graphic Generator,Grafikgenerator,Графический Генератор
+MINER_NAME_29,Pixel Transformer,Pixeltransformator,Пиксельный Трансформатор
+MINER_NAME_30,Color Transformer,Farbtransformator,Цветовой Трансформатор
+MINER_NAME_31,Pixel Updater,Pixel-Updater,Пиксельный Обновитель
+MINER_NAME_32,Fine Renewal,Feine Erneuerung,Изображательный Обновитель
+MINER_NAME_33,Graphics Updater,Grafik-Updater,Графический Обновитель
+MINER_NAME_34,Pixel Converter,Pixelkonverter,Пиксельный Преобразователь
+SAVE_PROGRESS_TEXT,The world has been restored to %d%%,Die Welt wurde auf %d%% wiederhergestellt,Мир востановлен на %d%%

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RecipeExtract" load_steps=2 format=3 uid="uid://r5wopvimjqle"]
+
+[ext_resource type="Script" path="res://core/script/resource/recipe_extract.gd" id="1_3i7ik"]
+
+[resource]
+script = ExtResource("1_3i7ik")
+_id = 0
+name_key = "empty"
+execution_time = 2.0

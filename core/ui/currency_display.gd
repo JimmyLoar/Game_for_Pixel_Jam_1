@@ -31,7 +31,7 @@ func _ready() -> void:
 
 
 func update(__name = _name):
-	if __name == "": 
+	if str(__name) == "": 
 		hide()
 		return
 	
