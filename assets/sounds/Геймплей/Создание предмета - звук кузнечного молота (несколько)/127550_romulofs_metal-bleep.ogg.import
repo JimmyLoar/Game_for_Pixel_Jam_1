@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bom42pbi75g1d"
+path="res://.godot/imported/127550_romulofs_metal-bleep.ogg-4ee4eab4bcd0229d03c7f03eb10c0720.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Создание предмета - звук кузнечного молота (несколько)/127550_romulofs_metal-bleep.ogg"
+dest_files=["res://.godot/imported/127550_romulofs_metal-bleep.ogg-4ee4eab4bcd0229d03c7f03eb10c0720.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

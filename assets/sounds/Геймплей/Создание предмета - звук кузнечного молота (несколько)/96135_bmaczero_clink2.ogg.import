@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2on2jy6whb21"
+path="res://.godot/imported/96135_bmaczero_clink2.ogg-ed286d3a7a2743d4baf18b04fb724e3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Создание предмета - звук кузнечного молота (несколько)/96135_bmaczero_clink2.ogg"
+dest_files=["res://.godot/imported/96135_bmaczero_clink2.ogg-ed286d3a7a2743d4baf18b04fb724e3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

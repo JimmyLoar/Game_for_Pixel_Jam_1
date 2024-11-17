@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dgr44oob6x50c"
+path="res://.godot/imported/198400_ani_music_ani-spoons-slap-4a.ogg-9b722159eb84a603cf462217b8a5aa6e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Дроп - падение ложки на стол (несколько)/198400_ani_music_ani-spoons-slap-4a.ogg"
+dest_files=["res://.godot/imported/198400_ani_music_ani-spoons-slap-4a.ogg-9b722159eb84a603cf462217b8a5aa6e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pyhknixlnuce"
+path="res://.godot/imported/734295_rayray_cruze_heavy-object-pickup.ogg-a1a452a63ea6254facde9ef9c24c2711.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Стук кирок/734295_rayray_cruze_heavy-object-pickup.ogg"
+dest_files=["res://.godot/imported/734295_rayray_cruze_heavy-object-pickup.ogg-a1a452a63ea6254facde9ef9c24c2711.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

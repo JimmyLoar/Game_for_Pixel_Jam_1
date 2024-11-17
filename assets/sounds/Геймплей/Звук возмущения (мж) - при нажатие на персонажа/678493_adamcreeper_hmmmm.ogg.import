@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://df0xilq4c3653"
+path="res://.godot/imported/678493_adamcreeper_hmmmm.ogg-cb79dc178fab96ca20faec69eb47c057.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Звук возмущения (мж) - при нажатие на персонажа/678493_adamcreeper_hmmmm.ogg"
+dest_files=["res://.godot/imported/678493_adamcreeper_hmmmm.ogg-cb79dc178fab96ca20faec69eb47c057.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dttasdh7sxxf4"
+path="res://.godot/imported/212235_alexthegr81_tapesnare_6.ogg-7dc6fd50ba1e26c01d6aaa8052c4efd2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Провальная Покупка улучшения/212235_alexthegr81_tapesnare_6.ogg"
+dest_files=["res://.godot/imported/212235_alexthegr81_tapesnare_6.ogg-7dc6fd50ba1e26c01d6aaa8052c4efd2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

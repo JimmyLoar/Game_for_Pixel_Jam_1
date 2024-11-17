@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5obhrcyxus7m"
+path="res://.godot/imported/691965_gavynator_coin-collect-sound.ogg-492bd394e90cd9b19811c9813c10400d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Клик - похожий на звон монет, но менее звонкий (несколько)/691965_gavynator_coin-collect-sound.ogg"
+dest_files=["res://.godot/imported/691965_gavynator_coin-collect-sound.ogg-492bd394e90cd9b19811c9813c10400d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

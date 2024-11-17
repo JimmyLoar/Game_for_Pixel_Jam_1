@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2y4sfuoicuyx"
+path="res://.godot/imported/558254_msavioti_heavy-stone-push.ogg-151eb0ea1ed2e3b0246966fcc04021c1.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Перекатывание камешков/558254_msavioti_heavy-stone-push.ogg"
+dest_files=["res://.godot/imported/558254_msavioti_heavy-stone-push.ogg-151eb0ea1ed2e3b0246966fcc04021c1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

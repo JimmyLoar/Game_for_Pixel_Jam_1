@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kkd0mg5hxysm"
+path="res://.godot/imported/632663_xkeril_task-successful-sfx.ogg-55034be6058a781392c1fb8ff172672e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Успешная Покупка улучшения/632663_xkeril_task-successful-sfx.ogg"
+dest_files=["res://.godot/imported/632663_xkeril_task-successful-sfx.ogg-55034be6058a781392c1fb8ff172672e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

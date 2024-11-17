@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2q1e7hh4agia"
+path="res://.godot/imported/216413_evanmack01_can-flick.ogg-bf8bf426e799efc6447bcbbefaf67e1b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Клик - похожий на звон монет, но менее звонкий (несколько)/216413_evanmack01_can-flick.ogg"
+dest_files=["res://.godot/imported/216413_evanmack01_can-flick.ogg-bf8bf426e799efc6447bcbbefaf67e1b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

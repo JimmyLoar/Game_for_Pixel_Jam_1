@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://75m7cn1hjjfv"
+path="res://.godot/imported/515643_mashedtatoes2_ding2.ogg-ac5f28677bb0c64a3c7ecda7aae97922.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Дроп - падение ложки на стол (несколько)/515643_mashedtatoes2_ding2.ogg"
+dest_files=["res://.godot/imported/515643_mashedtatoes2_ding2.ogg-ac5f28677bb0c64a3c7ecda7aae97922.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

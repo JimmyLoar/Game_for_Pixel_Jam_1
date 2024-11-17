@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2p6r028oswsp"
+path="res://.godot/imported/742402_noisyredfox_hmvoice-question.ogg-afc4cb31dc03058a5d135faf62d6a37f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Звук возмущения (мж) - при нажатие на персонажа/742402_noisyredfox_hmvoice-question.ogg"
+dest_files=["res://.godot/imported/742402_noisyredfox_hmvoice-question.ogg-afc4cb31dc03058a5d135faf62d6a37f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5ywucrj1jvbs"
+path="res://.godot/imported/609335_kenneth_cooney_levelup.ogg-73b215e8adb5bae3fc09c6f0b0d0c365.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Успешная Покупка улучшения/609335_kenneth_cooney_levelup.ogg"
+dest_files=["res://.godot/imported/609335_kenneth_cooney_levelup.ogg-73b215e8adb5bae3fc09c6f0b0d0c365.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

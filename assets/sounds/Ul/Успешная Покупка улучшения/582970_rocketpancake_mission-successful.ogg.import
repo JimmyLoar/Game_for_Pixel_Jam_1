@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbhkdenynbgl"
+path="res://.godot/imported/582970_rocketpancake_mission-successful.ogg-b2401603c593b7044155711a0bdd02d0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Успешная Покупка улучшения/582970_rocketpancake_mission-successful.ogg"
+dest_files=["res://.godot/imported/582970_rocketpancake_mission-successful.ogg-b2401603c593b7044155711a0bdd02d0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

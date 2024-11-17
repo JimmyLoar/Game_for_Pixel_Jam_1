@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://br14nxdjg2ys7"
+path="res://.godot/imported/242501__gabrielaraujo__powerupsuccess.ogg-7378d25700e8395495e37839785e7b48.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Нажатие на кнопку/242501__gabrielaraujo__powerupsuccess.ogg"
+dest_files=["res://.godot/imported/242501__gabrielaraujo__powerupsuccess.ogg-7378d25700e8395495e37839785e7b48.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

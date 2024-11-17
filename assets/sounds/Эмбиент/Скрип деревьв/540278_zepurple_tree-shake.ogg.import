@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://g8lnvj3eftxi"
+path="res://.godot/imported/540278_zepurple_tree-shake.ogg-a8fbc73ac27bfa09645f75823669afee.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Скрип деревьв/540278_zepurple_tree-shake.ogg"
+dest_files=["res://.godot/imported/540278_zepurple_tree-shake.ogg-a8fbc73ac27bfa09645f75823669afee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

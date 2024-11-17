@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://leqh08j4bofc"
+path="res://.godot/imported/699822_8bitmyketison_dog-bark.ogg-d895c840508c7ebb207fcfac7be3a41d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Гавканье собаки/699822_8bitmyketison_dog-bark.ogg"
+dest_files=["res://.godot/imported/699822_8bitmyketison_dog-bark.ogg-d895c840508c7ebb207fcfac7be3a41d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

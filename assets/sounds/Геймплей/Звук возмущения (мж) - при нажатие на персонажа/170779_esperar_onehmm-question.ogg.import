@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5ep7ut11e0pw"
+path="res://.godot/imported/170779_esperar_onehmm-question.ogg-736f52a8e1aeacb76af95fa029676cd8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Звук возмущения (мж) - при нажатие на персонажа/170779_esperar_onehmm-question.ogg"
+dest_files=["res://.godot/imported/170779_esperar_onehmm-question.ogg-736f52a8e1aeacb76af95fa029676cd8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

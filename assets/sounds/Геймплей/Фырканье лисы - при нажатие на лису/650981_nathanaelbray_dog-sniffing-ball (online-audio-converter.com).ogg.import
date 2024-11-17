@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dw0mhl4gfyiih"
+path="res://.godot/imported/650981_nathanaelbray_dog-sniffing-ball (online-audio-converter.com).ogg-a7a468b7f426bc291a1e111421210f0b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Фырканье лисы - при нажатие на лису/650981_nathanaelbray_dog-sniffing-ball (online-audio-converter.com).ogg"
+dest_files=["res://.godot/imported/650981_nathanaelbray_dog-sniffing-ball (online-audio-converter.com).ogg-a7a468b7f426bc291a1e111421210f0b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

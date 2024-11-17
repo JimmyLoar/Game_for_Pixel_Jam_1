@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbomcrscrd85t"
+path="res://.godot/imported/625497_abhisheky948_animal-dog-bark-08.ogg-37d6884e47ae59559ec7d5199d91c08e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Гавканье собаки/625497_abhisheky948_animal-dog-bark-08.ogg"
+dest_files=["res://.godot/imported/625497_abhisheky948_animal-dog-bark-08.ogg-37d6884e47ae59559ec7d5199d91c08e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

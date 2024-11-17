@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bx4ocp035ix5g"
+path="res://.godot/imported/536728_egomassive_buzz.ogg-9ba1c5c7063e796b824ad366cbfe9573.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Звуки шагов/536728_egomassive_buzz.ogg"
+dest_files=["res://.godot/imported/536728_egomassive_buzz.ogg-9ba1c5c7063e796b824ad366cbfe9573.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

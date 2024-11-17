@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ba2i11ys8oem0"
+path="res://.godot/imported/102957_cobrakissrock_ca-caw-pish_01 (online-audio-converter.com).ogg-fa14312034a2c6124df80dff605cbed7.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Невнятный разговор жителей (пара)/102957_cobrakissrock_ca-caw-pish_01 (online-audio-converter.com).ogg"
+dest_files=["res://.godot/imported/102957_cobrakissrock_ca-caw-pish_01 (online-audio-converter.com).ogg-fa14312034a2c6124df80dff605cbed7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

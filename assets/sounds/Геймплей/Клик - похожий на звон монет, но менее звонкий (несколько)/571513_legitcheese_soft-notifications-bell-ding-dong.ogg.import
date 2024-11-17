@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://csuf8yde71o6g"
+path="res://.godot/imported/571513_legitcheese_soft-notifications-bell-ding-dong.ogg-0dd4b3fb1354b95d3a848d6269dc1bdc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Клик - похожий на звон монет, но менее звонкий (несколько)/571513_legitcheese_soft-notifications-bell-ding-dong.ogg"
+dest_files=["res://.godot/imported/571513_legitcheese_soft-notifications-bell-ding-dong.ogg-0dd4b3fb1354b95d3a848d6269dc1bdc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

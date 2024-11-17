@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c05u78x0d252u"
+path="res://.godot/imported/475416_o_ciz_metal-hit_1sword-hammer-blacksmith.ogg-4ee97d74783fb28ed760eaf7013705d6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Создание предмета - звук кузнечного молота (несколько)/475416_o_ciz_metal-hit_1sword-hammer-blacksmith.ogg"
+dest_files=["res://.godot/imported/475416_o_ciz_metal-hit_1sword-hammer-blacksmith.ogg-4ee97d74783fb28ed760eaf7013705d6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

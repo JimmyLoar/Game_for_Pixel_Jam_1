@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bt8xft0sjy52c"
+path="res://.godot/imported/46698_uauaua_9903132.ogg-710b7dcdc01a01ea8c1ee93779268741.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Провальная Покупка улучшения/46698_uauaua_9903132.ogg"
+dest_files=["res://.godot/imported/46698_uauaua_9903132.ogg-710b7dcdc01a01ea8c1ee93779268741.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

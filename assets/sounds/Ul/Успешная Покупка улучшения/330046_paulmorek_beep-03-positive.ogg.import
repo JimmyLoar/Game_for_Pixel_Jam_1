@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://qs50gejtm0ci"
+path="res://.godot/imported/330046_paulmorek_beep-03-positive.ogg-0a7bff3dc47b28068d178da4f38080ca.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Успешная Покупка улучшения/330046_paulmorek_beep-03-positive.ogg"
+dest_files=["res://.godot/imported/330046_paulmorek_beep-03-positive.ogg-0a7bff3dc47b28068d178da4f38080ca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

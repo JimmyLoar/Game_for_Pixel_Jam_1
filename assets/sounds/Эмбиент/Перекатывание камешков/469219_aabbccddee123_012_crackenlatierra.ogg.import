@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://byflyui7trg74"
+path="res://.godot/imported/469219_aabbccddee123_012_crackenlatierra.ogg-42316555897d45f4e5a40cd60fd8810d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Перекатывание камешков/469219_aabbccddee123_012_crackenlatierra.ogg"
+dest_files=["res://.godot/imported/469219_aabbccddee123_012_crackenlatierra.ogg-42316555897d45f4e5a40cd60fd8810d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dr6wis5qx7ca4"
+path="res://.godot/imported/216054_gusgus26_cup-and-spoon.ogg-840b43ae267a9015cbfa8fc4b680e234.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Дроп - падение ложки на стол (несколько)/216054_gusgus26_cup-and-spoon.ogg"
+dest_files=["res://.godot/imported/216054_gusgus26_cup-and-spoon.ogg-840b43ae267a9015cbfa8fc4b680e234.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cixjwgkp5aipp"
+path="res://.godot/imported/711441_f3ather_a-gust-of-wind-blowing-some-leaves.ogg-44bb123e8e9a9496af1dfdabbe04e4e4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Скрип деревьв/711441_f3ather_a-gust-of-wind-blowing-some-leaves.ogg"
+dest_files=["res://.godot/imported/711441_f3ather_a-gust-of-wind-blowing-some-leaves.ogg-44bb123e8e9a9496af1dfdabbe04e4e4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

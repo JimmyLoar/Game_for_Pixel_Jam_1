@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtf0han0lqi4k"
+path="res://.godot/imported/683970_ezzin_dog-groan.ogg-9bcfcc69ad1dcb4fb4f3436020079c38.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Скуление собаки - при нажатие на собаку/683970_ezzin_dog-groan.ogg"
+dest_files=["res://.godot/imported/683970_ezzin_dog-groan.ogg-9bcfcc69ad1dcb4fb4f3436020079c38.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

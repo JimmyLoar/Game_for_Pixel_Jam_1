@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cp05l7bo8fy0k"
+path="res://.godot/imported/529260_misunra_coina-9.ogg-90d68279395e23cf954f024fe9b6c29d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Клик - похожий на звон монет, но менее звонкий (несколько)/529260_misunra_coina-9.ogg"
+dest_files=["res://.godot/imported/529260_misunra_coina-9.ogg-90d68279395e23cf954f024fe9b6c29d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

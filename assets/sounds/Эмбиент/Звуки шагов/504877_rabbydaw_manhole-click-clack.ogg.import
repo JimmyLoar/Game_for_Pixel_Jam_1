@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxxxjddghavg7"
+path="res://.godot/imported/504877_rabbydaw_manhole-click-clack.ogg-0f7a27c2ceb7867e633bb22835fa1041.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Звуки шагов/504877_rabbydaw_manhole-click-clack.ogg"
+dest_files=["res://.godot/imported/504877_rabbydaw_manhole-click-clack.ogg-0f7a27c2ceb7867e633bb22835fa1041.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

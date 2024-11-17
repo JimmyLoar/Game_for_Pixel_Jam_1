@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8anehrgyreje"
+path="res://.godot/imported/664634_ilmari_freesound_2022-12-14-luca-pre-walk-zoom-h5-mic-007.ogg-bbbc89cbf4b151ec22d98c2c90b90fb7.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Скуление собаки - при нажатие на собаку/664634_ilmari_freesound_2022-12-14-luca-pre-walk-zoom-h5-mic-007.ogg"
+dest_files=["res://.godot/imported/664634_ilmari_freesound_2022-12-14-luca-pre-walk-zoom-h5-mic-007.ogg-bbbc89cbf4b151ec22d98c2c90b90fb7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

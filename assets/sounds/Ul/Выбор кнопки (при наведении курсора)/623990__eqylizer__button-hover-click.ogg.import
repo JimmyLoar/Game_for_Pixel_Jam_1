@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wflihrworm8i"
+path="res://.godot/imported/623990__eqylizer__button-hover-click.ogg-5e0e0099f18d17797d9a6b55e86aede4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Ul/Выбор кнопки (при наведении курсора)/623990__eqylizer__button-hover-click.ogg"
+dest_files=["res://.godot/imported/623990__eqylizer__button-hover-click.ogg-5e0e0099f18d17797d9a6b55e86aede4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

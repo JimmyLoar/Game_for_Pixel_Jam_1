@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://blt6vwtsd5onq"
+path="res://.godot/imported/724927_greyfeather_dog-death-cry-video-game-quality-bad-ish-quality.ogg-73998ae1eeaf8833d0d20fbe508296ed.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Геймплей/Скуление собаки - при нажатие на собаку/724927_greyfeather_dog-death-cry-video-game-quality-bad-ish-quality.ogg"
+dest_files=["res://.godot/imported/724927_greyfeather_dog-death-cry-video-game-quality-bad-ish-quality.ogg-73998ae1eeaf8833d0d20fbe508296ed.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

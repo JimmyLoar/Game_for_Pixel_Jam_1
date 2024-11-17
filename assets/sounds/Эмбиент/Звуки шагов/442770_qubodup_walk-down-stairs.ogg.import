@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://doudjnbm0nmil"
+path="res://.godot/imported/442770_qubodup_walk-down-stairs.ogg-88ac2e37a3443a10445f13e5eb44e60b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Эмбиент/Звуки шагов/442770_qubodup_walk-down-stairs.ogg"
+dest_files=["res://.godot/imported/442770_qubodup_walk-down-stairs.ogg-88ac2e37a3443a10445f13e5eb44e60b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
