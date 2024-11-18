@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqafjxxiadcpx"]
 
 [ext_resource type="Script" path="res://core/ui/currency_display.gd" id="1_dw8bb"]
-[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="1_hpjs6"]
+[ext_resource type="Texture2D" uid="uid://dhgkg8kkjiyol" path="res://assets/sprites/res_texture.tres" id="2_1tru4"]
 
 [node name="CurrencyDisplay" type="MarginContainer"]
 offset_right = 55.0
@@ -28,7 +28,7 @@ horizontal_alignment = 2
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(23, 23)
 layout_mode = 2
-texture = ExtResource("1_hpjs6")
+texture = ExtResource("2_1tru4")
 expand_mode = 1
 stretch_mode = 5
 

@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="CurrencyData" load_steps=3 format=3 uid="uid://b2g4551c7gkws"]
 
 [ext_resource type="Script" path="res://core/script/resource/currency_data.gd" id="1_mpojt"]
-[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_nnb6b"]
+[ext_resource type="Texture2D" uid="uid://dhgkg8kkjiyol" path="res://assets/sprites/res_texture.tres" id="2_tiykt"]
 
 [resource]
 script = ExtResource("1_mpojt")
 name_key = "pixel_super_blue"
 visible_name = "PROPERTY_NAME_PIXEL_SUPER_BLUE"
 discription = "PROPERTY_DISCRIPTION_PIXEL_SUPER_BLUE"
-texture = ExtResource("2_nnb6b")
+texture = ExtResource("2_tiykt")
 default_value = 0.0
 default_max_value = 4.29497e+06
 default_min_value = 0.0
 default_delta_value = 0.0
-modulate = Color(0, 0.529412, 1, 1)
+modulate = Color(0.905033, 0.309489, 0, 1)

@@ -21,4 +21,4 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "select"
+text = "BUTTON_TEXT_SELECTE"

@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_wsnvv")
 _resource_0_id = 2
-_resource_0_value = 50
+_resource_0_value = 35
 _resource_1_id = 3
-_resource_1_value = 50
+_resource_1_value = 35
 _resource_2_id = 4
-_resource_2_value = 50
+_resource_2_value = 35
 _resource_3_id = 6
 _resource_3_value = 1
 name_key = ""

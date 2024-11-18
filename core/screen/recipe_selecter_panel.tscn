@@ -75,7 +75,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "select"
+text = "BUTTON_TEXT_SELECTE"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -100,14 +100,17 @@ recipe = ExtResource("7_74jv3")
 layout_mode = 2
 
 [node name="RecipeSelecterItemRC3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
+visible = false
 layout_mode = 2
 recipe = ExtResource("7_emqpm")
 
 [node name="RecipeSelecterItemRC" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
+visible = false
 layout_mode = 2
 recipe = ExtResource("4_g0eqf")
 
 [node name="RecipeSelecterItemRC2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
+visible = false
 layout_mode = 2
 recipe = ExtResource("9_ulrvf")
 

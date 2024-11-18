@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=40 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
@@ -11,9 +11,23 @@
 [ext_resource type="Resource" uid="uid://ddsgvnrdbdu6h" path="res://content/upgrade/drop_per_click.tres" id="5_1a6tk"]
 [ext_resource type="PackedScene" uid="uid://631hy0tm7r6l" path="res://content/screen/world_1.tscn" id="6_pm424"]
 [ext_resource type="Texture2D" uid="uid://bgq2hovn5n76n" path="res://assets/sprites/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_FrameSlot01c.png" id="6_wxv3g"]
+[ext_resource type="Script" path="res://core/screen/recipe_selecter_panel.gd" id="7_0dnsn"]
 [ext_resource type="PackedScene" uid="uid://ddnu1bpo4pngg" path="res://content/screen/world_2.tscn" id="7_1khyj"]
 [ext_resource type="Script" path="res://core/script/resource/upgrade_data.gd" id="7_raipm"]
+[ext_resource type="Script" path="res://core/screen/recipe_selecter_item.gd" id="8_l8c7y"]
+[ext_resource type="Resource" uid="uid://bvjhqnl6ubtby" path="res://content/recipe/none.tres" id="9_5jak0"]
 [ext_resource type="Resource" uid="uid://d23d4k7ye6ynd" path="res://content/upgrade/world_upgrade.tres" id="10_0t0mh"]
+[ext_resource type="PackedScene" uid="uid://c4cnq70vytbmv" path="res://core/screen/recipe_selecter_item.tscn" id="10_t0ipw"]
+[ext_resource type="Resource" uid="uid://dbufm7fdte3f8" path="res://content/recipe/rc_red_click.tres" id="11_7uarf"]
+[ext_resource type="Resource" uid="uid://p8s6l6mk3can" path="res://content/recipe/rc_blue_click.tres" id="11_j8un3"]
+[ext_resource type="Resource" uid="uid://u6jeyjspm5ey" path="res://content/recipe/rc_blue_click2.tres" id="12_0v801"]
+[ext_resource type="Resource" uid="uid://0jca213qhvaw" path="res://content/recipe/rc_green_click.tres" id="12_ojqb4"]
+[ext_resource type="Resource" uid="uid://db6oxfb6w887r" path="res://content/recipe/rc_super.tres" id="14_2fo8o"]
+[ext_resource type="Resource" uid="uid://wwvxi31or0fm" path="res://content/recipe/rc_red_click2.tres" id="14_8qtjh"]
+[ext_resource type="Resource" uid="uid://b2elnhjw6yn7j" path="res://content/recipe/rc_green_click2.tres" id="14_rep0h"]
+[ext_resource type="Resource" uid="uid://d3nxa3v3lgtna" path="res://content/recipe/rc_sred.tres" id="15_dweo3"]
+[ext_resource type="Resource" uid="uid://cee66e21jqxnq" path="res://content/recipe/rc_sgreen.tres" id="16_032pe"]
+[ext_resource type="Resource" uid="uid://d0w1rtru8hgpi" path="res://content/recipe/rc_sblue.tres" id="17_cgotx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmbs"]
 bg_color = Color(0.121742, 0.132037, 0.144949, 1)
@@ -33,7 +47,7 @@ func _ready() -> void:
 
 func _check_upgrade():
 	if UpgradedList.upgrade_is_more_level(upgrade_name, 1):
-		create_tween().tween_property(self, \"modulate\", Color(1, 1, 1, 1), 0.5)
+		create_tween().tween_property(self, \"modulate\", Color(1, 1, 1, 1), 1.5)
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
@@ -120,6 +134,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh25w"]
+bg_color = Color(0.324203, 0.324203, 0.324203, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.843137, 0.705882, 0.239216, 1)
+border_blend = true
 
 [sub_resource type="Resource" id="Resource_2f5er"]
 script = ExtResource("7_raipm")
@@ -244,11 +267,23 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(388, 356)
+size = Vector2i(503, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="ClickArea" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_j3fv5")]
+modulate = Color(1, 0.846684, 0.50643, 1)
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/Control"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+offset_top = -27.0
+offset_right = 300.0
+offset_bottom = -4.0
+text = "TEXT_CLICK_TO_RECYCLE"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
 layout_mode = 2
@@ -324,68 +359,158 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = SubResource("GDScript_pygir")
 
-[node name="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 _prise_0_value = 0
 
-[node name="PanelContainer2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+_prise_0_value = 1500
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(2)
+
+[node name="Miner3" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(3)
+
+[node name="Miner4" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(4)
+
+[node name="Miner5" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(5)
 
-[node name="PanelContainer3" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner6" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(6)
+
+[node name="Miner7" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(7)
+
+[node name="Miner8" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(8)
+
+[node name="Miner9" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(9)
+
+[node name="Miner10" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(10)
-
-[node name="PanelContainer4" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(15)
-
-[node name="PanelContainer5" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(25)
-
-[node name="PanelContainer6" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(30)
-
-[node name="PanelContainer7" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(35)
-
-[node name="PanelContainer8" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(40)
-
-[node name="PanelContainer9" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(45)
-
-[node name="PanelContainer10" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
-layout_mode = 2
-need_upgrade_names = PackedStringArray("create_part_world")
-need_upgrade_levels = PackedInt32Array(50)
 
 [node name="RecipeSelecter" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer" instance=ExtResource("3_8nnld")]
 visible = false
 layout_mode = 2
 
-[node name="RecipeSelecter2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer" instance=ExtResource("3_8nnld")]
+[node name="RecipeSelecter2" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_gh25w")
+script = ExtResource("7_0dnsn")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RecipeSelecterItemSTOP" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("8_l8c7y")
+recipe = ExtResource("9_5jak0")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "STOP_MINER_TEXT"
+vertical_alignment = 1
+
+[node name="RecipeDisplay" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer/HBoxContainer" instance=ExtResource("4_3ey18")]
 visible = false
 layout_mode = 2
 
-[node name="HSeparator" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" index="1"]
-visible = false
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "BUTTON_TEXT_SELECTE"
 
-[node name="RecipeSelecterItemRE" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" index="2"]
-visible = false
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RecipeSelecterItemRC3" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("11_7uarf")
+
+[node name="RecipeSelecterItemRC" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("12_ojqb4")
+
+[node name="RecipeSelecterItemRC2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("11_j8un3")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RecipeSelecterItemRC10" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("14_8qtjh")
+
+[node name="RecipeSelecterItemRC9" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("14_rep0h")
+
+[node name="RecipeSelecterItemRC8" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("12_0v801")
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RecipeSelecterItemRC4" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("14_2fo8o")
+
+[node name="RecipeSelecterItemRC5" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("15_dweo3")
+
+[node name="RecipeSelecterItemRC6" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("16_032pe")
+
+[node name="RecipeSelecterItemRC7" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("10_t0ipw")]
+layout_mode = 2
+recipe = ExtResource("17_cgotx")
 
 [node name="Extraction" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -407,6 +532,7 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="ClickArea" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_j3fv5")]
+modulate = Color(0.737322, 0.907175, 1, 1)
 
 [node name="Control" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport"]
 anchors_preset = 15
@@ -553,7 +679,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(383, 163)
+size = Vector2i(268, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -578,7 +704,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(383, 163)
+size = Vector2i(268, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -642,4 +768,3 @@ data = ExtResource("10_0t0mh")
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay2"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay3"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay4"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2"]

@@ -7,4 +7,4 @@ script = ExtResource("1_r535e")
 extract_amount = 1
 _id = 3
 name_key = "empty"
-execution_time = 30.0
+execution_time = 10.0

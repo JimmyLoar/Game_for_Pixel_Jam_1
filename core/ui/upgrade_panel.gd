@@ -51,8 +51,7 @@ func _update_prise():
 		var display: PriseDisplay = prises.get_child(i)
 		display.set_id(_level_data["prise_%d/id" % i])
 		display.prise = _level_data["prise_%d/value" % i] 
-	button.text = "Buy
-	"
+	button.text = TranslationServer.translate("BUTTON_TEXT_BUY")
 	button.disabled = not _unlock
 
 
@@ -62,7 +61,7 @@ func _update_prise_null():
 		display.set_id(1)
 		display.prise = 0
 	button.disabled = true
-	button.text = "MAX"
+	button.text = TranslationServer.translate("BUTTON_TEXT_MAX")
 
 
 func _update_lock():
@@ -77,7 +76,7 @@ func _update_lock():
 			])
 	#rich_text_label.append_text("[/color]")
 	button.disabled = true
-	button.text = "LOCK"
+	button.text = TranslationServer.translate("BUTTON_TEXT_LOCK")
 	
 
 

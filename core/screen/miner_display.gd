@@ -48,7 +48,7 @@ func _update_lock():
 		rich_text_label.clear()
 		rich_text_label.append_text(TranslationServer.translate("MINER_DISCRIPTION"))
 		button.disabled = false
-		button.text = TranslationServer.translate("Buy")
+		button.text = TranslationServer.translate("BUTTON_TEXT_BUY")
 		update_prise_display()
 		
 	else:
@@ -63,7 +63,7 @@ func _update_lock():
 				need_upgrade_levels[index],
 				])
 		button.disabled = true
-		button.text = TranslationServer.translate("LOCK")
+		button.text = TranslationServer.translate("BUTTON_TEXT_LOCK")
 
 
 func _on_button_pressed() -> void:
@@ -95,12 +95,12 @@ func pushase():
 	mode = 1
 	prises.fill(0)
 	update_prise_display()
-	button.text = TranslationServer.translate("select recipe")
+	button.text = TranslationServer.translate("BUTTON_TEXT_SELECTE_RECIPE")
 	$MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel.text = TranslationServer.translate("MINER_SELECT_RECIPE")
 
 
 func _on_pressed_selected():
-	button.text = TranslationServer.translate("change recipe")
+	button.text = TranslationServer.translate("BUTTON_TEXT_CHANGE_RECIPE")
 	var selecter = $"../../../../../RecipeSelecter"
 	selecter.recipe_selected.connect(_confirm_selected, CONNECT_ONE_SHOT)
 	selecter.show()

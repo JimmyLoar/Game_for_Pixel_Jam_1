@@ -5,12 +5,12 @@
 [resource]
 script = ExtResource("1_cgv58")
 _resource_0_id = 4
-_resource_0_value = 350
+_resource_0_value = 200
 _resource_1_id = 6
-_resource_1_value = 3
+_resource_1_value = 4
 _resource_2_id = 1
 _resource_2_value = 0
 _resource_3_id = 9
-_resource_3_value = 3
+_resource_3_value = 1
 name_key = "rc_blue"
 execution_time = 5.0

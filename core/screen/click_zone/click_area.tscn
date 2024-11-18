@@ -1,14 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnwc6el6bjbp7"]
+[gd_scene load_steps=9 format=3 uid="uid://bnwc6el6bjbp7"]
 
-[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="1_63ukg"]
 [ext_resource type="Script" path="res://core/screen/click_zone/click_area.gd" id="1_lbd36"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="2_1m3mi"]
 [ext_resource type="Script" path="res://core/screen/click_zone/sprite_2d.gd" id="3_54lk2"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/drawable_rectangle.gd" id="3_wa6kw"]
+
+[sub_resource type="Gradient" id="Gradient_i68rp"]
+
+[sub_resource type="Resource" id="Resource_rhhl8"]
+script = ExtResource("3_wa6kw")
+corner_rounding = 5.0
+
+[sub_resource type="Gradient" id="Gradient_rkw0c"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Texture2D" id="Texture2D_kq0w3"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_1m3mi")
+size = Vector2i(90, 90)
+shape = SubResource("Resource_rhhl8")
+fill_type = 0
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_i68rp")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 0
+stroke_width = 8.0
+stroke_color = Color(0.384229, 0.384229, 0.384229, 1)
+stroke_gradient = SubResource("Gradient_rkw0c")
+stroke_from = Vector2(0.5, 0.5)
+stroke_to = Vector2(1, 1)
+stroke_repeat = "pad"
+stroke_joint = "bevel"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
 
 [node name="ClickArea" type="Node2D"]
 script = ExtResource("1_lbd36")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_63ukg")
+texture = SubResource("Texture2D_kq0w3")
 script = ExtResource("3_54lk2")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 
 [connection signal="clicked" from="." to="Sprite2D" method="_pressed"]

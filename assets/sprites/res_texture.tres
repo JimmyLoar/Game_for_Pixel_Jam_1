@@ -1,0 +1,37 @@
+[gd_resource type="Texture2D" script_class="ShapeTexture2D" load_steps=6 format=3 uid="uid://dhgkg8kkjiyol"]
+
+[ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="1_4g35y"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/drawable_rectangle.gd" id="2_6070y"]
+
+[sub_resource type="Gradient" id="Gradient_i68rp"]
+
+[sub_resource type="Resource" id="Resource_rhhl8"]
+script = ExtResource("2_6070y")
+corner_rounding = 5.0
+
+[sub_resource type="Gradient" id="Gradient_rkw0c"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_4g35y")
+size = Vector2i(30, 30)
+shape = SubResource("Resource_rhhl8")
+fill_type = 0
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_i68rp")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 0
+stroke_width = 4.0
+stroke_color = Color(0.384229, 0.384229, 0.384229, 1)
+stroke_gradient = SubResource("Gradient_rkw0c")
+stroke_from = Vector2(0.5, 0.5)
+stroke_to = Vector2(1, 1)
+stroke_repeat = "pad"
+stroke_joint = "bevel"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)

@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CurrencyData" load_steps=3 format=3 uid="uid://dx0hef5g3l0y2"]
 
 [ext_resource type="Script" path="res://core/script/resource/currency_data.gd" id="1_2pdlx"]
-[ext_resource type="Texture2D" uid="uid://cfchyw8ugqp81" path="res://icon.svg" id="2_kima7"]
+[ext_resource type="Texture2D" uid="uid://dhgkg8kkjiyol" path="res://assets/sprites/res_texture.tres" id="2_rsrmx"]
 
 [resource]
 script = ExtResource("1_2pdlx")
 name_key = "pixel_super"
 visible_name = "PROPERTY_NAME_PIXEL_SUPER"
 discription = "PROPERTY_DISCRIPTION_PIXEL_SUPER"
-texture = ExtResource("2_kima7")
+texture = ExtResource("2_rsrmx")
 default_value = 0.0
 default_max_value = 4.29497e+06
 default_min_value = 0.0
