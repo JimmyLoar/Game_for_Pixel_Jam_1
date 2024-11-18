@@ -16,5 +16,7 @@ func _on_level_up(level: int = 0, max_level: int = 1, values := {}):
 	for key in _name.split(","):
 		if not key.begins_with(self_name) and not key.begins_with(" " + self_name):
 			continue
-		enveroment.change_pixels(key.get_slice("/", 1), (fmod(level - 1, 5) + 1) * 0.313)
+		
+		max_level = 1
+		enveroment.change_pixels(key.get_slice("/", 1), (fmod(level - 1, max_level) + 1) * (1.57 / max_level), 1.5)
 	

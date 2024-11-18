@@ -190,7 +190,7 @@ script/source = "extends MarginContainer
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
-	progress_bar.max_value = 65
+	progress_bar.max_value = 13
 	UpgradedList.changed_list.connect(_update)
 	_update()
 
