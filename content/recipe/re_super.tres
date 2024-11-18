@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RecipeExtract" load_steps=2 format=3 uid="uid://d372bnshynm1e"]
+
+[ext_resource type="Script" path="res://core/script/resource/recipe_extract.gd" id="1_du82u"]
+
+[resource]
+script = ExtResource("1_du82u")
+extract_amount = 1
+_id = 0
+name_key = "empty"
+execution_time = 60.0

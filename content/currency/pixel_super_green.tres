@@ -13,4 +13,4 @@ default_value = 0.0
 default_max_value = 4.29497e+06
 default_min_value = 0.0
 default_delta_value = 0.0
-modulate = Color(0, 1, 0, 1)
+modulate = Color(0.529412, 1, 0, 1)

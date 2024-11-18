@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeCraft" load_steps=2 format=3 uid="uid://cee66e21jqxnq"]
+
+[ext_resource type="Script" path="res://core/script/resource/recipe_craft.gd" id="1_gxgur"]
+
+[resource]
+script = ExtResource("1_gxgur")
+_resource_0_id = 3
+_resource_0_value = 350
+_resource_1_id = 6
+_resource_1_value = 3
+_resource_2_id = 1
+_resource_2_value = 0
+_resource_3_id = 8
+_resource_3_value = 3
+name_key = "rc_blue"
+execution_time = 5.0

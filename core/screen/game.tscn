@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=25 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
@@ -20,6 +20,21 @@ bg_color = Color(0.121742, 0.132037, 0.144949, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_771el"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_jl5ar"]
+script/source = "extends VBoxContainer
+
+@export var upgrade_name: String = \"\"
+
+func _ready() -> void:
+	self.modulate = Color(1, 1, 1, 0)
+	UpgradedList.changed_list.connect(_check_upgrade)
+
+
+func _check_upgrade():
+	if UpgradedList.upgrade_is_more_level(upgrade_name, 1):
+		create_tween().tween_property(self, \"modulate\", Color(1, 1, 1, 1), 0.5)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -219,6 +234,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_771el")
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle"]
 layout_mode = 2
 theme_override_constants/separation = 0
+script = SubResource("GDScript_jl5ar")
+upgrade_name = "unlock_recycle"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
 layout_mode = 2
@@ -315,6 +332,46 @@ _prise_0_value = 0
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(5)
+
+[node name="PanelContainer3" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(10)
+
+[node name="PanelContainer4" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(15)
+
+[node name="PanelContainer5" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(25)
+
+[node name="PanelContainer6" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(30)
+
+[node name="PanelContainer7" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(35)
+
+[node name="PanelContainer8" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(40)
+
+[node name="PanelContainer9" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(45)
+
+[node name="PanelContainer10" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+layout_mode = 2
+need_upgrade_names = PackedStringArray("create_part_world")
+need_upgrade_levels = PackedInt32Array(50)
 
 [node name="RecipeSelecter" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer" instance=ExtResource("3_8nnld")]
 visible = false
@@ -475,6 +532,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_771el")
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World"]
 layout_mode = 2
 theme_override_constants/separation = 0
+script = SubResource("GDScript_jl5ar")
+upgrade_name = "unlock world"
 metadata/_edit_group_ = true
 
 [node name="Panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
@@ -583,5 +642,4 @@ data = ExtResource("10_0t0mh")
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay2"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay3"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay4"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer/PanelContainer2"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2"]

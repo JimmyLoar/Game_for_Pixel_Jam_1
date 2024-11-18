@@ -15,6 +15,7 @@ TIME_EXECUTION_TEXT,Processing time: %0.2f sec,"Verarbeitungszeit: %0,2f Sek",В
 TIME_EXTRACT_TEXT,Mining time: %0.2f sec,"Mining-Zeit: %0,2f Sek",Время добычи: %0.2f сек
 MINER_SELECT_RECIPE,Choose a recipe,Wählen Sie ein Rezept,Выбирете рецепт
 MINER_DISCRIPTION,Allows you to extract or process resources,Ermöglicht das Extrahieren oder Verarbeiten von Ressourcen,Позволяет добывать или перерабатывать ресурсы
+UPGRADE_LOCK_TEXT,,,Купите следующие улучшения:
 UPGRADE_DISCRIPTION_DROP_PER_CLICK,Increases the number of resources received by {values/click_value} for each click},"Erhöht die Anzahl der Ressourcen, die [color=green]{drop_per_click}[/color] mit jedem Klick erhält",Увеличевает кол-во получаемых ресурсов на [color=green]{drop_per_click}[/color] за каждый клик
 UPGRADE_NAME_DROP_PER_CLICK,More resources,Mehr Ressourcen,Больше ресурсов
 UPGRADE_NAME_CREATE_PART_WORLD,Create a piece of the world,Erschaffe ein Stück Welt,Создать кусочек мира

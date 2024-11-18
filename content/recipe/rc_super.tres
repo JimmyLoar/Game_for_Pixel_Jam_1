@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeCraft" load_steps=2 format=3 uid="uid://db6oxfb6w887r"]
+
+[ext_resource type="Script" path="res://core/script/resource/recipe_craft.gd" id="1_wsnvv"]
+
+[resource]
+script = ExtResource("1_wsnvv")
+_resource_0_id = 2
+_resource_0_value = 50
+_resource_1_id = 3
+_resource_1_value = 50
+_resource_2_id = 4
+_resource_2_value = 50
+_resource_3_id = 6
+_resource_3_value = 1
+name_key = ""
+execution_time = 5.0

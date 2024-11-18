@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_3i7ik")
+extract_amount = 1
 _id = 0
 name_key = "empty"
 execution_time = 2.0
