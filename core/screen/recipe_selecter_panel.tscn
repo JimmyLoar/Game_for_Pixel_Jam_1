@@ -114,6 +114,9 @@ visible = false
 layout_mode = 2
 recipe = ExtResource("9_ulrvf")
 
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="RecipeSelecterItemRC4" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
 layout_mode = 2
 recipe = ExtResource("10_8kmef")

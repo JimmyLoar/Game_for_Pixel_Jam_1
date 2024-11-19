@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=44 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
@@ -28,6 +28,9 @@
 [ext_resource type="Resource" uid="uid://d3nxa3v3lgtna" path="res://content/recipe/rc_sred.tres" id="15_dweo3"]
 [ext_resource type="Resource" uid="uid://cee66e21jqxnq" path="res://content/recipe/rc_sgreen.tres" id="16_032pe"]
 [ext_resource type="Resource" uid="uid://d0w1rtru8hgpi" path="res://content/recipe/rc_sblue.tres" id="17_cgotx"]
+[ext_resource type="AudioStream" uid="uid://ddlw0nkoltvvb" path="res://assets/kenney_impact-sounds/Audio/impactMining_000.ogg" id="21_c5s8x"]
+[ext_resource type="Resource" uid="uid://cv2shil0s5605" path="res://content/upgrade/mining_reward.tres" id="26_pfc5e"]
+[ext_resource type="Resource" uid="uid://bav5f2r6qh5t6" path="res://content/upgrade/mining_speed.tres" id="27_cx33q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmbs"]
 bg_color = Color(0.121742, 0.132037, 0.144949, 1)
@@ -48,6 +51,23 @@ func _ready() -> void:
 func _check_upgrade():
 	if UpgradedList.upgrade_is_more_level(upgrade_name, 1):
 		create_tween().tween_property(self, \"modulate\", Color(1, 1, 1, 1), 1.5)
+"
+
+[sub_resource type="GDScript" id="GDScript_lobf6"]
+script/source = "extends AudioStreamPlayer
+
+
+const sound = [
+	\"res://assets/kenney_interface-sounds/Audio/click_001.ogg\", 
+	\"res://assets/kenney_interface-sounds/Audio/click_002.ogg\", 
+	\"res://assets/kenney_interface-sounds/Audio/click_003.ogg\", 
+	\"res://assets/kenney_interface-sounds/Audio/click_004.ogg\", 
+	\"res://assets/kenney_interface-sounds/Audio/click_005.ogg\",
+]
+
+func play_sound():
+	stream = load(sound[randi() % sound.size()])
+	play()
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
@@ -128,7 +148,7 @@ func _ready() -> void:
 	for i in get_child_count(): 
 		var child: MinerPanel = get_child(i) 
 		var _name = names[wrapi(i, 0, names.size())] 
-		child.set_title(TranslationServer.translate(_name)) 
+		child.set_title(\"%d. %s\" % [i + 1, TranslationServer.translate(_name)]) 
 
 
 func _process(delta: float) -> void:
@@ -267,12 +287,15 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(503, 356)
+size = Vector2i(388, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="ClickArea" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_j3fv5")]
 modulate = Color(1, 0.846684, 0.50643, 1)
+
+[node name="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" index="2"]
+script = SubResource("GDScript_lobf6")
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
 layout_mode = 2
@@ -414,6 +437,7 @@ visible = false
 layout_mode = 2
 
 [node name="RecipeSelecter2" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -512,6 +536,9 @@ recipe = ExtResource("16_032pe")
 layout_mode = 2
 recipe = ExtResource("17_cgotx")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
+stream = ExtResource("21_c5s8x")
+
 [node name="Extraction" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -520,21 +547,25 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(487, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="ClickArea" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_j3fv5")]
+[node name="ClickArea" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_j3fv5")]
 modulate = Color(0.737322, 0.907175, 1, 1)
 
-[node name="Control" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport"]
+[node name="Control" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -546,65 +577,78 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control"]
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control"]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_stretch_ratio = 15.9
 
-[node name="PropertyDisplay" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 0
 
-[node name="PropertyDisplay2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 4
 
-[node name="PropertyDisplay3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 3
 
-[node name="PropertyDisplay4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 2
 
-[node name="PropertyDisplay5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 10
 
-[node name="PropertyDisplay6" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay6" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 5
 
-[node name="PropertyDisplay7" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay7" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 6
 
-[node name="PropertyDisplay8" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay8" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 9
 
-[node name="PropertyDisplay9" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay9" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 8
 
-[node name="PropertyDisplay10" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
+[node name="PropertyDisplay10" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/Control/HBoxContainer" instance=ExtResource("1_t7viv")]
 layout_mode = 2
 size_flags_horizontal = 3
 _id = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+bbcode_enabled = true
+text = "Получить ресурс:
+   200 [img=20 color=c8c8c8]res://assets/sprites/res_texture.tres[/img] => 1 [img=20 color=red]res://assets/sprites/res_texture.tres[/img], [img=20 color=green]res://assets/sprites/res_texture.tres[/img], [img=20 color=blue]res://assets/sprites/res_texture.tres[/img]
+ 2000 [img=20 color=c8c8c8]res://assets/sprites/res_texture.tres[/img] => 1 [img=20 color=yellow]res://assets/sprites/res_texture.tres[/img]
+"
+fit_content = true
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
 layout_mode = 2
@@ -634,17 +678,27 @@ size_flags_vertical = 3
 [node name="UpgradePanel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("5_1a6tk")
+hide_is_max = false
 
 [node name="UpgradePanel2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = SubResource("Resource_2f5er")
+hide_is_max = true
 
 [node name="UpgradePanel3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = SubResource("Resource_sesqn")
+hide_is_max = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
+[node name="UpgradePanel4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
+data = ExtResource("26_pfc5e")
+hide_is_max = false
+
+[node name="UpgradePanel5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+layout_mode = 2
+data = ExtResource("27_cx33q")
+hide_is_max = false
 
 [node name="World" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -679,7 +733,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(268, 163)
+size = Vector2i(383, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -704,7 +758,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(268, 163)
+size = Vector2i(383, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -757,12 +811,14 @@ size_flags_vertical = 3
 [node name="UpgradePanel_W1_BG1" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("10_0t0mh")
+hide_is_max = false
 
 [connection signal="clicked" from="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_recycle_clicked"]
-[connection signal="clicked" from="MarginContainer/HBoxContainer/Extraction/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_extraction_clicked"]
+[connection signal="clicked" from="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_extraction_clicked"]
 [connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up"]
 [connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer/SubViewport/World L2" method="_on_level_up"]
 
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay1"]
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay2"]

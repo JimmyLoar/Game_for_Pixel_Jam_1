@@ -4,12 +4,15 @@ extends PanelContainer
 signal level_up
 
 @export var data: UpgradeData
+@export var hide_is_max := false
 
 @onready var prises: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer/Prise
 @onready var title_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/Label
 @onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/HBoxContainer2/TextureRect
 @onready var rich_text_label: RichTextLabel = $MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel
 @onready var button: Button = $MarginContainer/VBoxContainer/HBoxContainer2/Button
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 var currect_level = 0
 var _unlock := true
@@ -32,7 +35,9 @@ func update():
 	rich_text_label.clear()
 	_unlock = check_for_unlock()
 	if _unlock:
-		var values = data.get_values(currect_level)
+		var values: Dictionary = data.get_values(currect_level)
+		if values.has("mining_speed"):
+			values["mining_speed"] = values["mining_speed"] / 10.0
 		rich_text_label.append_text(data.discription.format(values))
 		_update_prise()
 	
@@ -60,8 +65,11 @@ func _update_prise_null():
 		var display = prises.get_child(i)
 		display.set_id(1)
 		display.prise = 0
+	
 	button.disabled = true
 	button.text = TranslationServer.translate("BUTTON_TEXT_MAX")
+	if hide_is_max:
+		hide()
 
 
 func _update_lock():
@@ -92,8 +100,10 @@ func check_for_unlock():
 
 func _on_button_pressed() -> void:
 	if not check_currency():
+		audio_player.play_sound("error")
 		return
 	
+	audio_player.play_sound("conf")
 	for i in range(3):
 		var display: PriseDisplay = prises.get_child(i)
 		Currency.add_value(display._name, display.prise * -1)
@@ -120,3 +130,7 @@ func check_currency() -> bool:
 		if not display.check_has_prise():
 			return false
 	return true
+
+
+func _on_button_mouse_entered() -> void:
+	audio_player.play_sound("hover")

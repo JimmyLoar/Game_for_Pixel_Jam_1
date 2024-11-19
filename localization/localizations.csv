@@ -15,12 +15,16 @@ TIME_EXECUTION_TEXT,Processing time: %0.2f sec,"Verarbeitungszeit: %0,2f Sek",В
 TIME_EXTRACT_TEXT,Mining time: %0.2f sec,"Mining-Zeit: %0,2f Sek",Время добычи: %0.2f сек
 MINER_SELECT_RECIPE,Choose a recipe,Wählen Sie ein Rezept,Выбирете рецепт
 MINER_DISCRIPTION,Allows you to extract or process resources,Ermöglicht das Extrahieren oder Verarbeiten von Ressourcen,Позволяет добывать или перерабатывать ресурсы
-UPGRADE_LOCK_TEXT,,,Купите следующие улучшения:
+UPGRADE_LOCK_TEXT,Buy the following upgrades:,,Купите следующие улучшения:
 UPGRADE_DISCRIPTION_DROP_PER_CLICK,Increases the number of resources received by {values/click_value} for each click},"Erhöht die Anzahl der Ressourcen, die [color=green]{drop_per_click}[/color] mit jedem Klick erhält",Увеличевает кол-во получаемых ресурсов на [color=green]{drop_per_click}[/color] за каждый клик
-UPGRADE_NAME_UNLOCK WORLD,,,Открыть мир
-UPGRADE_NAME_UNLOCK_RECYCLE,,,Открыть переработку
-UPGRADE_DISCRIPTION_UNLOCK WORLD,,,Вы сможите начать востанавливать мир!
-UPGRADE_DISCRIPTION_UNLOCK_RECYCLE,,,Позволяет переделывать одни ресурсы в другие
+UPGRADE_NAME_UNLOCK WORLD,Open the world,,Открыть мир
+UPGRADE_NAME_UNLOCK_RECYCLE,Open processing,,Открыть переработку
+UPGRADE_DISCRIPTION_UNLOCK WORLD,You can begin to restore the world!,,Вы сможите начать востанавливать мир!
+UPGRADE_DISCRIPTION_UNLOCK_RECYCLE,Allows you to convert one resource into another,,Позволяет переделывать одни ресурсы в другие
+UPGRADE_NAME_MINIMG_SPEED,Processing speed,,Скорость обработки
+UPGRADE_NAME_MINIMG_REWARD,Processing efficiency,,Эффективность обработки
+UPGRADE_DISCRIPTION_MINIMG_REWARD,Reduces processing time by [color=green]{mining_speed}[/color] times,,Получайте в [color=green]{mining_reward}[/color] раз больше ресурсов
+UPGRADE_DISCRIPTION_MINIMG_SPEED,Receive [color=green]{mining_reward}[/color] times more resources,,Уменьшает время обработки в [color=green]{mining_speed}[/color] раз
 UPGRADE_NAME_DROP_PER_CLICK,More resources,Mehr Ressourcen,Больше ресурсов
 UPGRADE_NAME_CREATE_PART_WORLD,Create a piece of the world,Erschaffe ein Stück Welt,Создать кусочек мира
 UPGRADE_DISCRIPTION_CREATE_PART_WORLD,Creates a world piece by piece from nested pixels,Erstellt Stück für Stück eine Welt aus verschachtelten Pixeln,Создает мир по частям из вложенных пикселей
@@ -61,11 +65,11 @@ MINER_NAME_33,Graphics Updater,Grafik-Updater,Графический Обнов�
 MINER_NAME_34,Pixel Converter,Pixelkonverter,Пиксельный Преобразователь
 SAVE_PROGRESS_TEXT,The world has been restored to %d%%,Die Welt wurde auf %d%% wiederhergestellt,Мир востановлен на %d%%
 STOP_MINER_TEXT,STOP,,ОСТАНОВИТЬ
-BUTTON_TEXT_BUY,,,КУПИТЬ
-BUTTON_TEXT_SELECTE,,,ВЫБРАТЬ
-BUTTON_TEXT_CANSEL,,,ОТМЕНА
-BUTTON_TEXT_MAX,,,МАКС
-BUTTON_TEXT_LOCK,,,ЗАКРЫТО
-BUTTON_TEXT_SELECTE_RECIPE,,,ВЫБРАТЬ РЕЦЕПТ
-BUTTON_TEXT_CHANGE_RECIPE,,,ПОМЕНЯТЬ РЕЦЕПТ
-TEXT_CLICK_TO_RECYCLE,,,"1 клик = 0,5 сек"
+BUTTON_TEXT_BUY,BUY,,КУПИТЬ
+BUTTON_TEXT_SELECTE,CHOOSE,,ВЫБРАТЬ
+BUTTON_TEXT_CANSEL,CANCELLATION,,ОТМЕНА
+BUTTON_TEXT_MAX,MAX,,МАКС
+BUTTON_TEXT_LOCK,CLOSED,,ЗАКРЫТО
+BUTTON_TEXT_SELECTE_RECIPE,CHOOSE A RECIPE,,ВЫБРАТЬ РЕЦЕПТ
+BUTTON_TEXT_CHANGE_RECIPE,CHANGE RECIPE,,ПОМЕНЯТЬ РЕЦЕПТ
+TEXT_CLICK_TO_RECYCLE,1 click = 0.5 sec,,"1 клик = 0,5 сек"

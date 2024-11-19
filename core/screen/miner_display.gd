@@ -13,6 +13,7 @@ var database: Database = load(ProjectSettings.get_setting("resource_databases/ma
 @onready var progress_bar: TextureProgressBar = $MarginContainer/VBoxContainer/HBoxContainer/TextureProgressBar
 @onready var timer: Timer = $Timer
 @onready var rich_text_label: RichTextLabel = $MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -20,6 +21,7 @@ func _ready() -> void:
 		return
 	
 	UpgradedList.changed_list.connect(_update_lock)
+	Properties.change_value.connect(_update_property)
 	timer.timeout.connect(_on_timeout)
 	_update_lock()
 
@@ -76,7 +78,10 @@ func _on_button_pressed() -> void:
 
 func _on_pressed_pushased():
 	if not check_for_currency():
+		audio_player.play_sound("error")
 		return
+	
+	audio_player.play_sound("conf")
 	pushase()
 	
 
@@ -100,13 +105,16 @@ func pushase():
 
 
 func _on_pressed_selected():
+	audio_player.play_sound("select")
 	button.text = TranslationServer.translate("BUTTON_TEXT_CHANGE_RECIPE")
 	var selecter = $"../../../../../RecipeSelecter"
 	selecter.recipe_selected.connect(_confirm_selected, CONNECT_ONE_SHOT)
 	selecter.show()
+	
 
 var _selected_recipe: RecipeI
 func _confirm_selected(recipe: RecipeI):
+	audio_player.play_sound("select")
 	_selected_recipe = recipe
 	$MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel.hide()
 	recipe_display.recipe = recipe
@@ -120,9 +128,16 @@ func _confirm_selected(recipe: RecipeI):
 		progress_bar.hide()
 	
 	else:
-		timer.start(recipe.execution_time)
-		progress_bar.max_value = recipe.execution_time
+		var time = _get_execution_time()
+		timer.start(time)
+		progress_bar.max_value = time
 		progress_bar.show()
+
+
+func _get_execution_time():
+	if not _selected_recipe:
+		return 0
+	return _selected_recipe.execution_time / (Properties.get_value("mining_speed") / 10.0)
 
 
 func _on_timeout():
@@ -131,8 +146,19 @@ func _on_timeout():
 		return
 	
 	for i in resource.size() / 2:
-		var multiper = 1 if i > 2 else -1
-		Currency.add_value_id(resource[i * 2], resource[i * 2 +1] * multiper)
+		var multiper = Properties.get_value("mining_reward") if i > 2 else -1
+		var value = resource[i * 2 +1] * multiper
+		Currency.add_value_id(resource[i * 2], value)
+	audio_player.play_sound("mining%d" % [randi() % 5])
+
+
+func _update_property(_name: String):
+	if _name != "mining_speed":
+		return
+	
+	var time = _get_execution_time()
+	timer.wait_time = time
+	progress_bar.max_value = time
 
 
 func check_currency(resource: Array) -> bool:

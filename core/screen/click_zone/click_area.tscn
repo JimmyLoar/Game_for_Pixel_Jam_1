@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnwc6el6bjbp7"]
+[gd_scene load_steps=11 format=3 uid="uid://bnwc6el6bjbp7"]
 
 [ext_resource type="Script" path="res://core/screen/click_zone/click_area.gd" id="1_lbd36"]
 [ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="2_1m3mi"]
 [ext_resource type="Script" path="res://core/screen/click_zone/sprite_2d.gd" id="3_54lk2"]
 [ext_resource type="Script" path="res://addons/shape_texture_2d/drawable_rectangle.gd" id="3_wa6kw"]
+[ext_resource type="AudioStream" uid="uid://cf0yjit5afrcb" path="res://assets/kenney_impact-sounds/Audio/impactGlass_heavy_004.ogg" id="5_q8q4m"]
 
 [sub_resource type="Gradient" id="Gradient_i68rp"]
 
@@ -38,6 +39,23 @@ offset = Vector2(0, 0)
 rotation = 0.0
 scale = Vector2(1, 1)
 
+[sub_resource type="GDScript" id="GDScript_sqk73"]
+script/source = "extends AudioStreamPlayer
+
+
+const sound = [
+	\"res://assets/kenney_impact-sounds/Audio/impactMetal_medium_000.ogg\",
+	#\"res://assets/kenney_impact-sounds/Audio/impactMetal_light_002.ogg\",
+	\"res://assets/kenney_impact-sounds/Audio/impactMetal_heavy_002.ogg\",
+	\"res://assets/kenney_impact-sounds/Audio/impactMetal_medium_004.ogg\",
+	\"res://assets/kenney_impact-sounds/Audio/impactMetal_medium_001.ogg\",
+]
+
+func play_sound():
+	stream = load(sound[randi() % sound.size()])
+	play()
+"
+
 [node name="ClickArea" type="Node2D"]
 script = ExtResource("1_lbd36")
 
@@ -46,5 +64,10 @@ texture = SubResource("Texture2D_kq0w3")
 script = ExtResource("3_54lk2")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q8q4m")
+volume_db = -5.0
+script = SubResource("GDScript_sqk73")
 
 [connection signal="clicked" from="." to="Sprite2D" method="_pressed"]

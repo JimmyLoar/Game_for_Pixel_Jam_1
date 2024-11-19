@@ -26,8 +26,7 @@ func _on_selected(recipe: RecipeI):
 	currect_recipe = recipe
 	recipe_display.recipe = recipe
 	self_recipe_selecter.hide()
-	progress_bar.max_value = recipe.execution_time
-	
+	progress_bar.max_value = recipe.execution_time / (Properties.get_value("mining_speed") / 10)
 	
 
 func _on_clicked():
@@ -40,14 +39,20 @@ func _on_clicked():
 
 
 func _on_complite():
+	progress_bar.max_value = currect_recipe.execution_time / (Properties.get_value("mining_speed") / 10)
 	var resource = currect_recipe.get_resource()
 	if not check_currency(resource):
 		return
 	
 	progress_bar.value = 0
 	for i in resource.size() / 2:
-		var multiper = 1 if i > 2 else -1
-		Currency.add_value_id(resource[i * 2], resource[i * 2 +1] * multiper)
+		if resource[i * 2 +1] <= 0:
+			continue
+		var multiper = Properties.get_value("mining_reward") if i > 2 else -1
+		var value = resource[i * 2 +1] * multiper
+		Currency.add_value_id(resource[i * 2], value)
+		$VBoxContainer/AudioStreamPlayer.play()
+
 
 
 func check_currency(resource: Array) -> bool:

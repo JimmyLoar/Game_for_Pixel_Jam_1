@@ -6,12 +6,15 @@ const COLLECTION_NAME = "currency"
 
 var database: Database = load(ProjectSettings.get_setting("resource_databases/main_path", ""))
 
-var _values := Dictionary()
+var _values := Dictionary({
+	#"pixel_empty": 1000000,
+})
 
 
 func _init() -> void:
 	var currency_list = database.fetch_collection_data(COLLECTION_NAME)
 	for data in currency_list.values():
+		if _values.has(data.name_key): continue
 		set_value(data.name_key, data.default_value)
 
 

@@ -1,13 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8qr08vbom781"]
+[gd_scene load_steps=5 format=3 uid="uid://b8qr08vbom781"]
 
 [ext_resource type="Script" path="res://core/ui/upgrade_panel.gd" id="1_t5tpt"]
 [ext_resource type="PackedScene" uid="uid://ceklg2gcwcad5" path="res://core/ui/prise_display.tscn" id="2_m8jrd"]
+[ext_resource type="AudioStream" uid="uid://bekcebo1ikmb" path="res://assets/kenney_interface-sounds/Audio/confirmation_001.ogg" id="3_c8nio"]
+
+[sub_resource type="GDScript" id="GDScript_rskmf"]
+script/source = "extends AudioStreamPlayer
+
+const sound = {
+	\"conf\": \"res://assets/kenney_interface-sounds/Audio/confirmation_001.ogg\",
+	\"error\": \"res://assets/kenney_interface-sounds/Audio/back_003.ogg\",
+	\"hover\": \"res://assets/kenney_interface-sounds/Audio/tick_001.ogg\",
+}
+
+func play_sound(_name: String):
+	stream = load(sound[_name])
+	play()
+"
 
 [node name="UpgradePanel" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 88)
 offset_right = 429.0
 offset_bottom = 75.0
 script = ExtResource("1_t5tpt")
+hide_is_max = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -77,4 +93,9 @@ size_flags_vertical = 4
 disabled = true
 text = "Buy"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c8nio")
+script = SubResource("GDScript_rskmf")
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]

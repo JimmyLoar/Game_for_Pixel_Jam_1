@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=2 format=3 uid="uid://cv2shil0s5605"]
+
+[ext_resource type="Script" path="res://core/script/resource/upgrade_data.gd" id="1_mmnsb"]
+
+[resource]
+script = ExtResource("1_mmnsb")
+name_key = "minimg_reward"
+visible_name = "UPGRADE_NAME_MINIMG_REWARD"
+discription = "UPGRADE_DISCRIPTION_MINIMG_REWARD"
+add_property = true
+is_override = false
+level_max = 5
+values_names = Array[String](["mining_reward"])
+level_00/need_upgrade_names = PackedStringArray("unlock_recycle")
+level_00/need_upgrade_levels = PackedInt32Array(1)
+level_00/values/mining_reward = 1
+level_00/prise_0/id = 1
+level_00/prise_0/value = 0
+level_00/prise_1/id = 1
+level_00/prise_1/value = 0
+level_00/prise_2/id = 1
+level_00/prise_2/value = 0
+level_01/need_upgrade_names = PackedStringArray("unlock_recycle")
+level_01/need_upgrade_levels = PackedInt32Array(1)
+level_01/values/mining_reward = 2
+level_01/prise_0/id = 1
+level_01/prise_0/value = 0
+level_01/prise_1/id = 1
+level_01/prise_1/value = 0
+level_01/prise_2/id = 1
+level_01/prise_2/value = 0
+level_02/need_upgrade_names = PackedStringArray("unlock_recycle")
+level_02/need_upgrade_levels = PackedInt32Array(1)
+level_02/values/mining_reward = 3
+level_02/prise_0/id = 1
+level_02/prise_0/value = 0
+level_02/prise_1/id = 1
+level_02/prise_1/value = 0
+level_02/prise_2/id = 1
+level_02/prise_2/value = 0
+level_03/need_upgrade_names = PackedStringArray("unlock_recycle")
+level_03/need_upgrade_levels = PackedInt32Array(1)
+level_03/values/mining_reward = 4
+level_03/prise_0/id = 1
+level_03/prise_0/value = 0
+level_03/prise_1/id = 1
+level_03/prise_1/value = 0
+level_03/prise_2/id = 1
+level_03/prise_2/value = 0
+level_04/need_upgrade_names = PackedStringArray("unlock_recycle")
+level_04/need_upgrade_levels = PackedInt32Array(1)
+level_04/values/mining_reward = 5
+level_04/prise_0/id = 1
+level_04/prise_0/value = 0
+level_04/prise_1/id = 1
+level_04/prise_1/value = 0
+level_04/prise_2/id = 1
+level_04/prise_2/value = 0
+level_05/need_upgrade_names = PackedStringArray("unlock_recycle")
+level_05/need_upgrade_levels = PackedInt32Array(1)
+level_05/values/mining_reward = 10
+level_05/prise_0/id = 1
+level_05/prise_0/value = 0
+level_05/prise_1/id = 1
+level_05/prise_1/value = 0
+level_05/prise_2/id = 1
+level_05/prise_2/value = 0

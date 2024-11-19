@@ -12,6 +12,7 @@ extends VBoxContainer
 
 
 func _ready() -> void:
+	Properties.change_value.connect(update_value)
 	update()
 
 
@@ -26,6 +27,13 @@ func update():
 	show()
 
 
+func update_value(_name: String):
+	if not _name.begins_with("mining"):
+		return
+	
+	update()
+
+
 func _update_recources():
 	var resource = recipe.get_resource()
 	for i in range(4):
@@ -36,6 +44,8 @@ func _update_recources():
 		
 		display.update(resource[i * 2])
 		display.prise = resource[i * 2 + 1]
+		if i == 3:
+			display.prise *= Properties.get_value("mining_reward")
 
 
 func _update_vision():
@@ -56,5 +66,5 @@ func _update_rich_text():
 	rich_text_label.clear()
 	var text_key = "TIME_EXECUTION_TEXT" if recipe is RecipeCraft else "TIME_EXTRACT_TEXT" 
 	rich_text_label.append_text(
-		TranslationServer.translate(text_key) % [recipe.execution_time]
+		TranslationServer.translate(text_key) % [recipe.execution_time / (Properties.get_value("mining_speed") / 10.0)]
 	)
