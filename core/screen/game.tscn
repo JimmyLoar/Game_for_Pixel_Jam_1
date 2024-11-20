@@ -69,6 +69,11 @@ const sound = [
 func play_sound():
 	stream = load(sound[randi() % sound.size()])
 	play()
+
+
+func play_error():
+	stream = load(\"res://assets/kenney_interface-sounds/Audio/back_003.ogg\")
+	play()
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjfbm"]
@@ -292,7 +297,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(387, 356)
+size = Vector2i(421, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -605,7 +610,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(495, 356)
+size = Vector2i(421, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -776,7 +781,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(414, 163)
+size = Vector2i(416, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -801,7 +806,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(414, 163)
+size = Vector2i(416, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 

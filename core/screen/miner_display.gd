@@ -16,6 +16,8 @@ var database: Database = load(ProjectSettings.get_setting("resource_databases/ma
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
+var is_purshased := false
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): 
 		return
@@ -50,7 +52,7 @@ func _update_lock():
 		rich_text_label.clear()
 		rich_text_label.append_text(TranslationServer.translate("MINER_DISCRIPTION"))
 		button.disabled = false
-		button.text = TranslationServer.translate("BUTTON_TEXT_BUY")
+		button.text = TranslationServer.translate("BUTTON_TEXT_BUY" if not is_purshased else "BUTTON_TEXT_CHANGE_RECIPE")
 		update_prise_display()
 		
 	else:
@@ -97,6 +99,7 @@ func pushase():
 		var index = i * PRISES_PROPERTIES_AMOUNT
 		Currency.add_value_id(prises[index], prises[index + 1] * -1)
 	
+	is_purshased = true
 	mode = 1
 	prises.fill(0)
 	update_prise_display()

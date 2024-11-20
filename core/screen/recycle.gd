@@ -42,6 +42,7 @@ func _on_complite():
 	progress_bar.max_value = currect_recipe.execution_time / (Properties.get_value("mining_speed") / 10)
 	var resource = currect_recipe.get_resource()
 	if not check_currency(resource):
+		$VBoxContainer/SubViewportContainer/SubViewport/ClickArea/AudioStreamPlayer.play_error()
 		return
 	
 	progress_bar.value = 0
@@ -51,7 +52,9 @@ func _on_complite():
 		var multiper = Properties.get_value("mining_reward") if i > 2 else -1
 		var value = resource[i * 2 +1] * multiper
 		Currency.add_value_id(resource[i * 2], value)
-		$VBoxContainer/AudioStreamPlayer.play()
+	
+	$VBoxContainer/AudioStreamPlayer.play()
+	
 
 
 

@@ -81,7 +81,15 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "BUTTON_TEXT_SELECTE"
 
+[node name="Control" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 
 [node name="RecipeSelecterItemRE" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
@@ -100,7 +108,15 @@ recipe = ExtResource("7_j3mia")
 layout_mode = 2
 recipe = ExtResource("7_74jv3")
 
+[node name="Control3" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 
 [node name="RecipeSelecterItemRC3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
@@ -127,7 +143,15 @@ recipe = ExtResource("14_jqio1")
 layout_mode = 2
 recipe = ExtResource("15_2grsx")
 
+[node name="Control4" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
 layout_mode = 2
 
 [node name="RecipeSelecterItemRC4" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]

@@ -22,7 +22,6 @@ config/icon="res://icon.svg"
 Currency="*res://core/script/singletone/currency.gd"
 Properties="*res://core/script/singletone/properties.gd"
 UpgradedList="*res://core/script/singletone/upgraded_list.gd"
-LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
 
 [display]
 

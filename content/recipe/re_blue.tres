@@ -7,4 +7,4 @@ script = ExtResource("1_4hsyt")
 extract_amount = 1
 _id = 2
 name_key = "empty"
-execution_time = 10.0
+execution_time = 6.0

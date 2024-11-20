@@ -37,16 +37,15 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.937282, 0.499749, 1)
 theme_override_font_sizes/font_size = 16
 text = "UPGRADE_NAME_DROP_PER_CLICK"
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+autowrap_mode = 3
 
 [node name="Prise" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="PriseDisplay" parent="MarginContainer/VBoxContainer/HBoxContainer/Prise" instance=ExtResource("2_m8jrd")]
 layout_mode = 2
