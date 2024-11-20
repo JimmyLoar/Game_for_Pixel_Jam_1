@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://va78km63r0mx"]
+[gd_scene load_steps=47 format=3 uid="uid://va78km63r0mx"]
 
 [ext_resource type="PackedScene" uid="uid://bnwc6el6bjbp7" path="res://core/screen/click_zone/click_area.tscn" id="1_j3fv5"]
 [ext_resource type="Script" path="res://core/screen/game.gd" id="1_s6ysp"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://ddlw0nkoltvvb" path="res://assets/kenney_impact-sounds/Audio/impactMining_000.ogg" id="21_c5s8x"]
 [ext_resource type="Resource" uid="uid://cv2shil0s5605" path="res://content/upgrade/mining_reward.tres" id="26_pfc5e"]
 [ext_resource type="Resource" uid="uid://bav5f2r6qh5t6" path="res://content/upgrade/mining_speed.tres" id="27_cx33q"]
+[ext_resource type="Script" path="res://core/screen/audio_stream_player.gd" id="32_rxeh4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmbs"]
 bg_color = Color(0.121742, 0.132037, 0.144949, 1)
@@ -69,6 +70,10 @@ func play_sound():
 	stream = load(sound[randi() % sound.size()])
 	play()
 "
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjfbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5pam"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar2yn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -205,7 +210,7 @@ level_00/need_upgrade_names = PackedStringArray()
 level_00/need_upgrade_levels = PackedInt32Array()
 level_00/values/defualt = null
 level_00/prise_0/id = 0
-level_00/prise_0/value = 1000
+level_00/prise_0/value = 350
 level_00/prise_1/id = 0
 level_00/prise_1/value = 0
 level_00/prise_2/id = 0
@@ -287,7 +292,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(388, 356)
+size = Vector2i(387, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -295,6 +300,7 @@ render_target_update_mode = 4
 modulate = Color(1, 0.846684, 0.50643, 1)
 
 [node name="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" index="2"]
+volume_db = 5.0
 script = SubResource("GDScript_lobf6")
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
@@ -311,28 +317,43 @@ text = "TEXT_CLICK_TO_RECYCLE"
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rjfbm")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5pam")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 61)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="TextLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.638286, 0.633323, 1, 1)
-text = "Hand  recycle"
+theme_override_colors/font_color = Color(1, 0.7289, 0.317183, 1)
+text = "UI_HAND_RECYCLE_TEXT"
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -342,25 +363,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_vc4xg")
 max_value = 1.0
 show_percentage = false
 
-[node name="RecipeLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="RecipeLabel" type="Label" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 text = "Selected:"
 
-[node name="RecipeDisplay" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_3ey18")]
+[node name="RecipeDisplay" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_3ey18")]
 layout_mode = 2
 
-[node name="RichTextLabel" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay" index="0"]
+[node name="RichTextLabel" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay" index="0"]
 visible = false
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "change recipe"
+text = "BUTTON_TEXT_CHANGE_RECIPE"
 autowrap_mode = 3
 
-[node name="Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
@@ -368,66 +389,91 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel"]
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel"]
 layout_mode = 2
 border_width = 2.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = SubResource("GDScript_pygir")
 
-[node name="Miner" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
-_prise_0_value = 0
+_prise_0_id = 4
+_prise_0_value = 1
+_prise_1_id = 3
+_prise_1_value = 1
+_prise_2_id = 2
+_prise_2_value = 1
+need_upgrade_levels = PackedInt32Array()
 
-[node name="Miner2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner2" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
-_prise_0_value = 1500
+_prise_0_id = 4
+_prise_0_value = 3
+_prise_1_id = 3
+_prise_1_value = 3
+_prise_2_id = 2
+_prise_2_value = 3
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(2)
 
-[node name="Miner3" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner3" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
+_prise_0_id = 4
+_prise_0_value = 10
+_prise_1_id = 3
+_prise_1_value = 10
+_prise_2_id = 2
+_prise_2_value = 10
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(3)
 
-[node name="Miner4" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner4" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
+_prise_0_id = 4
+_prise_0_value = 25
+_prise_1_id = 3
+_prise_1_value = 25
+_prise_2_id = 2
+_prise_2_value = 25
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(4)
 
-[node name="Miner5" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner5" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(5)
 
-[node name="Miner6" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner6" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
+_prise_0_id = 6
+_prise_0_value = 3
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(6)
 
-[node name="Miner7" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner7" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(7)
 
-[node name="Miner8" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner8" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(8)
 
-[node name="Miner9" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner9" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(9)
 
-[node name="Miner10" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
+[node name="Miner10" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_n8eiy")]
 layout_mode = 2
 need_upgrade_names = PackedStringArray("create_part_world")
 need_upgrade_levels = PackedInt32Array(10)
@@ -484,6 +530,7 @@ visible = false
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/RecipeSelecter2/MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "BUTTON_TEXT_SELECTE"
 
@@ -558,7 +605,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(487, 356)
+size = Vector2i(495, 356)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -638,6 +685,7 @@ size_flags_horizontal = 3
 _id = 7
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -650,11 +698,8 @@ text = "Получить ресурс:
 "
 fit_content = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer"]
+[node name="Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
@@ -662,43 +707,40 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel"]
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel"]
 layout_mode = 2
 border_width = 2.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="UpgradePanel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="UpgradePanel" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("5_1a6tk")
-hide_is_max = false
 
-[node name="UpgradePanel2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="UpgradePanel2" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = SubResource("Resource_2f5er")
 hide_is_max = true
 
-[node name="UpgradePanel3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="UpgradePanel3" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = SubResource("Resource_sesqn")
 hide_is_max = true
 
-[node name="UpgradePanel4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="UpgradePanel4" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("26_pfc5e")
-hide_is_max = false
 
-[node name="UpgradePanel5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/PanelContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="UpgradePanel5" parent="MarginContainer/HBoxContainer/Extraction/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("27_cx33q")
-hide_is_max = false
 
 [node name="World" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -710,6 +752,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_771el")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World"]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 script = SubResource("GDScript_jl5ar")
@@ -733,7 +776,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(383, 163)
+size = Vector2i(414, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -758,7 +801,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(383, 163)
+size = Vector2i(414, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -796,31 +839,37 @@ text = "SAVE_PROGRESS_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="UpgradePanel_W1_BG1" parent="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
+[node name="UpgradePanel_W1_BG1" parent="MarginContainer/HBoxContainer/World/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_gjklg")]
 layout_mode = 2
 data = ExtResource("10_0t0mh")
-hide_is_max = false
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/World/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+script = ExtResource("32_rxeh4")
 
 [connection signal="clicked" from="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_recycle_clicked"]
 [connection signal="clicked" from="MarginContainer/HBoxContainer/Extraction/VBoxContainer/MarginContainer/SubViewportContainer/SubViewport/ClickArea" to="." method="_on_extraction_clicked"]
-[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up"]
-[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer/SubViewport/World L2" method="_on_level_up"]
+[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer/SubViewport/World L1" method="_on_level_up"]
+[connection signal="level_up" from="MarginContainer/HBoxContainer/World/VBoxContainer/ScrollContainer/VBoxContainer/UpgradePanel_W1_BG1" to="MarginContainer/HBoxContainer/World/VBoxContainer/Panel2/SubViewportContainer/SubViewport/World L2" method="_on_level_up"]
 
 [editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/SubViewportContainer/SubViewport/ClickArea"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay1"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay2"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay3"]
-[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay4"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay1"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay2"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay3"]
+[editable path="MarginContainer/HBoxContainer/Recycle/VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay/HBoxContainer/PriseDisplay4"]

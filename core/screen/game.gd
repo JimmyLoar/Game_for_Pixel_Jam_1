@@ -8,10 +8,10 @@ func _on_recycle_clicked() -> void:
 func _on_extraction_clicked() -> void:
 	var value = Properties.get_value("drop_per_click")
 	Currency.add_value("pixel_empty", value)
-	_rare_value += value
-	_super_value += value
-	add_rare()
-	add_super()
+	#_rare_value += value
+	#_super_value += value
+	#add_rare()
+	#add_super()
 
 var _rare_value = 0
 const _names := ["pixel_red", "pixel_green", "pixel_blue"]

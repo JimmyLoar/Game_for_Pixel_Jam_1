@@ -34,6 +34,10 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/localization_editor/plugin.cfg", "res://addons/resource_databases/editor_only/plugin.cfg")
 
+[gui]
+
+theme/custom="res://core/main_theme.tres"
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://localization/localizations.en.translation", "res://localization/localizations.de.translation", "res://localization/localizations.ru.translation")

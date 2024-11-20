@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://sn1tl0yliyft"]
+[gd_scene load_steps=21 format=3 uid="uid://sn1tl0yliyft"]
 
 [ext_resource type="Script" path="res://core/screen/recipe_selecter_panel.gd" id="1_k832m"]
 [ext_resource type="PackedScene" uid="uid://c4cnq70vytbmv" path="res://core/screen/recipe_selecter_item.tscn" id="2_1vj1d"]
@@ -15,7 +15,10 @@
 [ext_resource type="Resource" uid="uid://db6oxfb6w887r" path="res://content/recipe/rc_super.tres" id="10_8kmef"]
 [ext_resource type="Resource" uid="uid://d3nxa3v3lgtna" path="res://content/recipe/rc_sred.tres" id="11_7447d"]
 [ext_resource type="Resource" uid="uid://cee66e21jqxnq" path="res://content/recipe/rc_sgreen.tres" id="12_tb2ec"]
+[ext_resource type="Resource" uid="uid://cux1t7qfbtwew" path="res://content/recipe/rc_red2.tres" id="13_bt4el"]
 [ext_resource type="Resource" uid="uid://d0w1rtru8hgpi" path="res://content/recipe/rc_sblue.tres" id="13_ogqme"]
+[ext_resource type="Resource" uid="uid://cg63afcuhe40s" path="res://content/recipe/rc_green2.tres" id="14_jqio1"]
+[ext_resource type="Resource" uid="uid://dfquxdai7r62p" path="res://content/recipe/rc_blue2.tres" id="15_2grsx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh25w"]
 bg_color = Color(0.324203, 0.324203, 0.324203, 1)
@@ -74,6 +77,7 @@ visible = false
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/RecipeSelecterItemSTOP/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "BUTTON_TEXT_SELECTE"
 
@@ -100,19 +104,28 @@ recipe = ExtResource("7_74jv3")
 layout_mode = 2
 
 [node name="RecipeSelecterItemRC3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
-visible = false
 layout_mode = 2
 recipe = ExtResource("7_emqpm")
 
+[node name="RecipeSelecterItemRC2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
+layout_mode = 2
+recipe = ExtResource("9_ulrvf")
+
 [node name="RecipeSelecterItemRC" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
-visible = false
 layout_mode = 2
 recipe = ExtResource("4_g0eqf")
 
-[node name="RecipeSelecterItemRC2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
-visible = false
+[node name="RecipeSelecterItemRC8" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
 layout_mode = 2
-recipe = ExtResource("9_ulrvf")
+recipe = ExtResource("13_bt4el")
+
+[node name="RecipeSelecterItemRC9" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
+layout_mode = 2
+recipe = ExtResource("14_jqio1")
+
+[node name="RecipeSelecterItemRC10" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_1vj1d")]
+layout_mode = 2
+recipe = ExtResource("15_2grsx")
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2

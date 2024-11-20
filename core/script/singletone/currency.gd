@@ -7,7 +7,7 @@ const COLLECTION_NAME = "currency"
 var database: Database = load(ProjectSettings.get_setting("resource_databases/main_path", ""))
 
 var _values := Dictionary({
-	#"pixel_empty": 1000000,
+	#"pixel_empty": 10240000,
 })
 
 

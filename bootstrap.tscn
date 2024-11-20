@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://0nwqtaqjfuk7"]
+[gd_scene load_steps=4 format=3 uid="uid://0nwqtaqjfuk7"]
 
 [ext_resource type="PackedScene" uid="uid://va78km63r0mx" path="res://core/screen/game.tscn" id="1_gxbpu"]
+[ext_resource type="Theme" uid="uid://dg1o01du1ih8b" path="res://core/main_theme.tres" id="2_m5hqp"]
 
 [sub_resource type="GDScript" id="GDScript_l1grh"]
 script/source = "extends Node
@@ -14,3 +15,10 @@ func _ready() -> void:
 [node name="Bootstrap" type="Node"]
 script = SubResource("GDScript_l1grh")
 game_scene = ExtResource("1_gxbpu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_m5hqp")

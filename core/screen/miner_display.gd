@@ -6,7 +6,7 @@ extends PanelContainer
 
 var database: Database = load(ProjectSettings.get_setting("resource_databases/main_path", ""))
 
-@onready var prise_display_container: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer
+@onready var prise_display_container: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer3
 @onready var button: Button = $MarginContainer/VBoxContainer/HBoxContainer2/Button
 @onready var recipe_display: VBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer
 
@@ -54,9 +54,9 @@ func _update_lock():
 		update_prise_display()
 		
 	else:
+		prise_display_container.get_child(0).hide()
 		prise_display_container.get_child(1).hide()
 		prise_display_container.get_child(2).hide()
-		prise_display_container.get_child(3).hide()
 		rich_text_label.clear()
 		rich_text_label.append_text("[color=red]%s[/color]" % TranslationServer.translate("UPGRADE_LOCK_TEXT"))
 		for index in need_upgrade_names.size():
@@ -107,7 +107,7 @@ func pushase():
 func _on_pressed_selected():
 	audio_player.play_sound("select")
 	button.text = TranslationServer.translate("BUTTON_TEXT_CHANGE_RECIPE")
-	var selecter = $"../../../../../RecipeSelecter"
+	var selecter = $"../../../../../../RecipeSelecter"
 	selecter.recipe_selected.connect(_confirm_selected, CONNECT_ONE_SHOT)
 	selecter.show()
 	

@@ -1,12 +1,12 @@
 extends MarginContainer
 
 @onready var click_area: Node2D = $VBoxContainer/SubViewportContainer/SubViewport/ClickArea
-@onready var button: Button = $VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Button
+@onready var button: Button = $VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Button
 
 @onready var recipe_selecter: PanelContainer = $VBoxContainer/PanelContainer/RecipeSelecter
 @onready var self_recipe_selecter: PanelContainer = $VBoxContainer/PanelContainer/RecipeSelecter2
-@onready var recipe_display: VBoxContainer = $VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/RecipeDisplay
-@onready var progress_bar: ProgressBar = $VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ProgressBar
+@onready var recipe_display: VBoxContainer = $VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RecipeDisplay
+@onready var progress_bar: ProgressBar = $VBoxContainer/PanelContainer/PanelContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ProgressBar
 
 
 

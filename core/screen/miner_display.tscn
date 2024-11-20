@@ -38,7 +38,7 @@ const sound = {
 func play_sound(_name: String):
 	stream = load(sound[_name])
 	if _name.begins_with(\"min\"): 
-		volume_db = -8
+		volume_db = -5
 	else: volume_db = 0
 	play()
 "
@@ -72,26 +72,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
-theme_override_colors/font_color = Color(1.13589e-05, 0.877823, 0.932396, 1)
+theme_override_colors/font_color = Color(0.994639, 0.739645, 1.54018e-06, 1)
 text = "miner "
-
-[node name="PriseDisplay1" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nagua")]
-visible = false
-layout_mode = 2
-prise = 0
-invert_side = false
-
-[node name="PriseDisplay2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nagua")]
-visible = false
-layout_mode = 2
-prise = 0
-invert_side = false
-
-[node name="PriseDisplay3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_nagua")]
-visible = false
-layout_mode = 2
-prise = 0
-invert_side = false
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(23, 23)
@@ -103,6 +85,31 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_progress = ExtResource("2_htu0f")
 script = SubResource("GDScript_j6o7h")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="PriseDisplay1" parent="MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_nagua")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+prise = 0
+invert_side = false
+
+[node name="PriseDisplay2" parent="MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_nagua")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+prise = 0
+invert_side = false
+
+[node name="PriseDisplay3" parent="MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_nagua")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+prise = 0
+invert_side = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

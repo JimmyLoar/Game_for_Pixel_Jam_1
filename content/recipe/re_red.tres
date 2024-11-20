@@ -7,4 +7,4 @@ script = ExtResource("1_ugact")
 extract_amount = 1
 _id = 4
 name_key = "empty"
-execution_time = 10.0
+execution_time = 6.0
