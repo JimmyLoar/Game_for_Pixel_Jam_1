@@ -203,3 +203,24 @@ tile_set = ExtResource("5_6nc54")
 
 [node name="Camera2D" parent="." index="3"]
 enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="4"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = 70.0
+offset_right = 276.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center][rainbow freq=1.0 sat=0.8 val=0.8][font_size=22]FantazyAdveture[/font_size][/rainbow]
+[i] [font_size=14]     by  [color=purple] Jimmyster[/color]
+and [color=orangered]DarkPixy[/color]"
+fit_content = true

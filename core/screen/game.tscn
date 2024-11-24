@@ -256,6 +256,7 @@ func _update():
 "
 
 [node name="Game" type="PanelContainer"]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -748,6 +749,7 @@ layout_mode = 2
 data = ExtResource("27_cx33q")
 
 [node name="World" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -780,7 +782,9 @@ size_flags_stretch_ratio = 0.5
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/World/VBoxContainer/Panel/SubViewportContainer"]
-handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
 size = Vector2i(416, 163)
 size_2d_override_stretch = true
 render_target_update_mode = 4
